@@ -16,6 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'ext.YiiMongoDbSuite.*',
 	),
 
 	'modules'=>array(
@@ -79,6 +80,15 @@ return array(
 				*/
 			),
 		),
+		
+		'mongodb' => array(
+	        'class'             => 'EMongoDB',
+	        'connectionString'  => 'mongodb://root@192.168.1.11',
+	        'dbName'            => 'doctor',
+	        'fsyncFlag'         => false,
+	        'safeFlag'          => false,
+	        'useCursor'         => false,
+	    ),
 	),
 
 	// application-level parameters that can be accessed
