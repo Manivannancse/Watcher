@@ -83,8 +83,8 @@ return array(
 		
 		'mongodb' => array(
 	        'class'             => 'EMongoDB',
-	        'connectionString'  => 'mongodb://root@192.168.1.11',
-	        'dbName'            => 'doctor',
+	        'connectionString'  => 'mongodb://192.168.1.11',
+	        'dbName'            => 'watcher',
 	        'fsyncFlag'         => false,
 	        'safeFlag'          => false,
 	        'useCursor'         => false,
