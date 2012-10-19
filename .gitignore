@@ -164,4 +164,5 @@ pip-log.txt
 
 # log files
 logs/*.log
+protected/runtime/*.log
 .log
