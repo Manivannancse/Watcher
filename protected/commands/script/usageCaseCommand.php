@@ -26,15 +26,35 @@ class UsageCaseCommand extends CConsoleCommand{
 	 * insert a new document into mongo:can
 	 */
 	private function insert(){
+		$lastMaxID = WCan::getLastMaxIDByTableName('player');
+		
+		$dba = Yii::app()->db;
+		$cmd = $dba->createCommand("
+			select max(id) as maxID,count(*) as total
+			from player
+		");
+		$res = $cmd->queryRow(true,array());
+		$newMaxID = $res['maxID'];
+		$newTotal = $res['total'];
+		
+		$cmd = $dba->createCommand("
+			select count(*) as addition
+			from player
+			where id>:lastMaxID
+		");
+		$res = $cmd->queryRow(true,array(':lastMaxID' => $lastMaxID));
+		$addition = $res['addition'];
+		
 		$can = new Can();
-		$can->tableName 	= 'account';
-		$can->maxID			= 0;
+		$can->tableName 	= 'player';
+		$can->maxID			= $newMaxID;
 		$can->sectionTime 	= 0;
-		$can->addition 		= 2;
-		$can->total 		= 6;
+		$can->addition 		= $addition;
+		$can->total 		= $newTotal;
 		$can->recordTime 	= time();
 		$can->insert();
 		echo "new document inserted into mongodb\n";
+		
 	}
 	
 	/**
@@ -50,6 +70,8 @@ class UsageCaseCommand extends CConsoleCommand{
 	 * find the latest document:order by recordTime
 	 */
 	private function findLatestOne(){
-		print_r(WCan::getLatestRecordByTableName('account'));
+		$doc = WCan::getLatestRecordByTableName('account');
+		$wCan = new WCan($doc->_id, $doc);
+		$wCan->showMyself();
 	}
 }
