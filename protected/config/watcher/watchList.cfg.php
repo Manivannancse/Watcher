@@ -173,3 +173,4 @@ return array(
 	array('tableName' => 'weather_pridict', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
 	array('tableName' => 'WebmoneyTransaction', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
 );
+?>
