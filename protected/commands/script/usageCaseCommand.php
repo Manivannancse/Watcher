@@ -27,11 +27,11 @@ class UsageCaseCommand extends CConsoleCommand{
 	 */
 	private function insert(){
 		$can = new Can();
-		$can->tableName 	= 'test';
+		$can->tableName 	= 'account';
 		$can->maxID			= 0;
 		$can->sectionTime 	= 0;
 		$can->addition 		= 2;
-		$can->total 		= 2;
+		$can->total 		= 6;
 		$can->recordTime 	= time();
 		$can->insert();
 		echo "new document inserted into mongodb\n";
@@ -50,11 +50,6 @@ class UsageCaseCommand extends CConsoleCommand{
 	 * find the latest document:order by recordTime
 	 */
 	private function findLatestOne(){
-		$can = new Can();
-		$criteria = new EMongoCriteria();
-		$criteria->tableName = 'test';
-		$criteria->sort('recordTime', EMongoCriteria::SORT_DESC);
-		$dList = $can->find($criteria);
-		print_r($dList->recordTime);
+		print_r(WCan::getLatestRecordByTableName('account'));
 	}
 }
