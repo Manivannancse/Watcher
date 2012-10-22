@@ -104,4 +104,48 @@ class WCan{
 		}	
 		return 0;
 	}
+	
+	/**
+	 * 
+	 * 获取某张表上一次的最大时间
+	 * @param 表名 $tableName
+	 */
+	public static function getLastMaxTimeByTableName($tableName){
+		$lastDoc = self::getLatestRecordByTableName($tableName);
+		if ($lastDoc) {
+			return $lastDoc->sectionTime;
+		}	
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
