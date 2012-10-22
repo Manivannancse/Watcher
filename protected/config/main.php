@@ -55,7 +55,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=192.168.7.49:8188;dbname=ninja',
+			'connectionString' => 'mysql:host=192.168.7.49;port:8188;dbname=ninja',
 			'emulatePrepare' => true,
 			'username' => 'mars_read',
 			'password' => 'FtFt05ab',
