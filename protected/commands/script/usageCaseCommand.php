@@ -36,8 +36,8 @@ class UsageCaseCommand extends CConsoleCommand{
 					from $tableName
 				");
 				$res = $cmd->queryRow(true,array());
-				$newMaxID = $res['maxID'];
-				$newTotal = $res['total'];
+				$newMaxID = (int)$res['maxID'];
+				$newTotal = (int)$res['total'];
 				
 				$cmd = $dba->createCommand("
 					select count(*) as addition
@@ -45,7 +45,7 @@ class UsageCaseCommand extends CConsoleCommand{
 					where $r[colName]>:lastMaxID
 				");
 				$res = $cmd->queryRow(true,array(':lastMaxID' => $lastMaxID));
-				$addition = $res['addition'];
+				$addition = (int)$res['addition'];
 				$can = new Can();
 				$can->tableName 	= $tableName;
 				$can->maxID			= $newMaxID;
@@ -62,16 +62,16 @@ class UsageCaseCommand extends CConsoleCommand{
 					from $tableName
 				");
 				$res = $cmd->queryRow(true,array());
-				$newLastTime = $res['lastTime'];
-				$newTotal = $res['total'];
+				$newLastTime = (int)$res['lastTime'];
+				$newTotal = (int)$res['total'];
 				
 				$cmd = $dba->createCommand("
 					select count(*) as addition
 					from $tableName
-					where $r[colName]>=:lastTime
+					where $r[colName]>:lastTime
 				");
 				$res = $cmd->queryRow(true,array(':lastTime' => $lastTime));
-				$addition = $res['addition'];
+				$addition = (int)$res['addition'];
 				$can = new Can();
 				$can->tableName 	= $tableName;
 				$can->maxID			= 0;
@@ -95,7 +95,7 @@ class UsageCaseCommand extends CConsoleCommand{
 				$can->maxID			= 0;
 				$can->sectionTime 	= 0;
 				$can->addition 		= $addition;
-				$can->total 		= $newTotal;
+				$can->total 		= (int)$newTotal;
 				$can->recordTime 	= time();
 				$can->insert();
 			}
