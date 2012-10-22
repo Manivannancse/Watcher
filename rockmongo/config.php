@@ -18,8 +18,8 @@ $i = 0;
 * 
 * @see more details at http://code.google.com/p/rock-php/wiki/configuration
 */
-$MONGO["servers"][$i]["mongo_name"] = "192.168.1.73";			//mongo server name
-$MONGO["servers"][$i]["mongo_host"] = "192.168.1.73";			//mongo host
+$MONGO["servers"][$i]["mongo_name"] = "127.0.0.1";			//mongo server name
+$MONGO["servers"][$i]["mongo_host"] = "127.0.0.1";			//mongo host
 $MONGO["servers"][$i]["mongo_port"] = "27017";					//mongo port
 $MONGO["servers"][$i]["mongo_timeout"] = 0;						//mongo connection timeout
 $MONGO["servers"][$i]["mongo_db"] = "ninja";					//default mongo db to connect, works only if mongo_auth=false
