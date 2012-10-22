@@ -1,5 +1,5 @@
 <?php
-class UsageCaseCommand extends CConsoleCommand{
+class CollecterCommand extends CConsoleCommand{
 	public function run($args){
 		if (isset($args[0])) {
 			switch ($args[0]) {
