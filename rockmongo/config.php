@@ -22,12 +22,12 @@ $MONGO["servers"][$i]["mongo_name"] = "host73";			//mongo server name
 $MONGO["servers"][$i]["mongo_host"] = "192.168.1.73";			//mongo host
 $MONGO["servers"][$i]["mongo_port"] = "27017";					//mongo port
 $MONGO["servers"][$i]["mongo_timeout"] = 0;						//mongo connection timeout
-$MONGO["servers"][$i]["mongo_db"] = "test";					//default mongo db to connect, works only if mongo_auth=false
+$MONGO["servers"][$i]["mongo_db"] = "Watcher";					//default mongo db to connect, works only if mongo_auth=false
 $MONGO["servers"][$i]["mongo_user"] = "root";					//mongo authentication user name, works only if mongo_auth=false
 $MONGO["servers"][$i]["mongo_pass"] = "Ft05ab";					//mongo authentication password, works only if mongo_auth=false
-$MONGO["servers"][$i]["mongo_auth"] = false;					//enable mongo authentication?
+$MONGO["servers"][$i]["mongo_auth"] = true;					//enable mongo authentication?
 
-$MONGO["servers"][$i]["control_auth"] = false;					//enable control users, works only if mongo_auth=false
+$MONGO["servers"][$i]["control_auth"] = true;					//enable control users, works only if mongo_auth=false
 $MONGO["servers"][$i]["control_users"]["admin"] = "root";		//one of control users [USERNAME]=PASSWORD, works only if mongo_auth=false
 
 $MONGO["servers"][$i]["ui_only_dbs"] = "";						//databases to display
