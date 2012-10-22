@@ -152,3 +152,17 @@ Stack trace:
 REQUEST_URI=/
 in E:\website\Watcher\protected\controllers\SiteController.php (28)
 in E:\website\Watcher\index.php (13)
+2012/10/22 17:35:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist. The SQL statement executed was: 
+					select max(id) as maxID,count(*) as total
+					from bigTreeLog
+				.
+2012/10/22 17:35:19 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist' in E:\website\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 E:\website\yii\framework\db\CDbCommand.php(393): CDbCommand->queryInternal('fetch', Array, Array)
+#1 E:\website\Watcher\protected\commands\script\CollecterCommand.php(38): CDbCommand->queryRow(true, Array)
+#2 E:\website\Watcher\protected\commands\script\CollecterCommand.php(7): CollecterCommand->insert()
+#3 E:\website\yii\framework\console\CConsoleCommandRunner.php(63): CollecterCommand->run(Array)
+#4 E:\website\yii\framework\console\CConsoleApplication.php(88): CConsoleCommandRunner->run(Array)
+#5 E:\website\yii\framework\base\CApplication.php(158): CConsoleApplication->processRequest()
+#6 E:\website\Watcher\protected\commands\run_cron.php(18): CApplication->run()
+#7 {main}
