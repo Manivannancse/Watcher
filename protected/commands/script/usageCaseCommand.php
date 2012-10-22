@@ -26,81 +26,7 @@ class UsageCaseCommand extends CConsoleCommand{
 	 * insert a new document into mongo:can
 	 */
 	private function insert(){
-		$tableAttr = Util::loadconfig('watchList');
-		foreach($tableAttr as $tableName => $r){
-			if($r['byID'] == 1 && $r['byTime'] == 0){
-				$lastMaxID = WCan::getLastMaxIDByTableName($tableName);
-				$dba = Yii::app()->db;
-				$cmd = $dba->createCommand("
-					select max($r[colName]) as maxID,count(*) as total
-					from $tableName
-				");
-				$res = $cmd->queryRow(true,array());
-				$newMaxID = (int)$res['maxID'];
-				$newTotal = (int)$res['total'];
-				
-				$cmd = $dba->createCommand("
-					select count(*) as addition
-					from $tableName
-					where $r[colName]>:lastMaxID
-				");
-				$res = $cmd->queryRow(true,array(':lastMaxID' => $lastMaxID));
-				$addition = (int)$res['addition'];
-				$can = new Can();
-				$can->tableName 	= $tableName;
-				$can->maxID			= $newMaxID;
-				$can->sectionTime 	= 0;
-				$can->addition 		= $addition;
-				$can->total 		= $newTotal;
-				$can->recordTime 	= time();
-				$can->insert();
-			}else if($r['byID'] == 0 && $r['byTime'] == 1){
-				$lastTime = WCan::getLastMaxTimeByTableName($tableName);
-				$dba = Yii::app()->db;
-				$cmd = $dba->createCommand("
-					select max($r[colName]) as lastTime,count(*) as total
-					from $tableName
-				");
-				$res = $cmd->queryRow(true,array());
-				$newLastTime = (int)$res['lastTime'];
-				$newTotal = (int)$res['total'];
-				
-				$cmd = $dba->createCommand("
-					select count(*) as addition
-					from $tableName
-					where $r[colName]>:lastTime
-				");
-				$res = $cmd->queryRow(true,array(':lastTime' => $lastTime));
-				$addition = (int)$res['addition'];
-				$can = new Can();
-				$can->tableName 	= $tableName;
-				$can->maxID			= 0;
-				$can->sectionTime 	= $newLastTime;
-				$can->addition 		= $addition;
-				$can->total 		= $newTotal;
-				$can->recordTime 	= time();
-				$can->insert();
-			}else{
-				$lastCount = WCan::getLastCountByTableName($tableName);
-				$dba = Yii::app()->db;
-				$cmd = $dba->createCommand("
-					select count(*) as total
-					from $tableName
-				");
-				$res = $cmd->queryRow(true,array());
-				$newTotal = $res['total'];
-				$addition = $newTotal - $lastCount;
-				$can = new Can();
-				$can->tableName 	= $tableName;
-				$can->maxID			= 0;
-				$can->sectionTime 	= 0;
-				$can->addition 		= $addition;
-				$can->total 		= (int)$newTotal;
-				$can->recordTime 	= time();
-				$can->insert();
-			}
-		}
-		/*$lastMaxID = WCan::getLastMaxIDByTableName('player');
+		$lastMaxID = WCan::getLastMaxIDByTableName('player');
 		
 		$dba = Yii::app()->db;
 		$cmd = $dba->createCommand("
@@ -118,7 +44,15 @@ class UsageCaseCommand extends CConsoleCommand{
 		");
 		$res = $cmd->queryRow(true,array(':lastMaxID' => $lastMaxID));
 		$addition = $res['addition'];
-		*/
+		
+		$can = new Can();
+		$can->tableName 	= 'player';
+		$can->maxID			= $newMaxID;
+		$can->sectionTime 	= 0;
+		$can->addition 		= $addition;
+		$can->total 		= $newTotal;
+		$can->recordTime 	= time();
+		$can->insert();
 		echo "new document inserted into mongodb\n";
 		
 	}
