@@ -68,7 +68,7 @@ class UsageCaseCommand extends CConsoleCommand{
 				$cmd = $dba->createCommand("
 					select count(*) as addition
 					from $tableName
-					where $r[colName]>:lastTime
+					where $r[colName]>=:lastTime
 				");
 				$res = $cmd->queryRow(true,array(':lastTime' => $lastTime));
 				$addition = $res['addition'];
