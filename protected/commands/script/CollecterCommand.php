@@ -27,10 +27,10 @@ class CollecterCommand extends CConsoleCommand{
 	 */
 	private function insert(){
 		$tableAttr = Util::loadconfig('watchList');
+		$dba = Yii::app()->db;
 		foreach($tableAttr as $tableName => $r){
 			if($r['byID'] == 1 && $r['byTime'] == 0){
 				$lastMaxID = WCan::getLastMaxIDByTableName($tableName);
-				$dba = Yii::app()->db;
 				$cmd = $dba->createCommand("
 					select max($r[colName]) as maxID,count(*) as total
 					from $tableName
@@ -46,17 +46,22 @@ class CollecterCommand extends CConsoleCommand{
 				");
 				$res = $cmd->queryRow(true,array(':lastMaxID' => $lastMaxID));
 				$addition = (int)$res['addition'];
-				$can = new Can();
-				$can->tableName 	= $tableName;
-				$can->maxID			= $newMaxID;
-				$can->sectionTime 	= 0;
-				$can->addition 		= $addition;
-				$can->total 		= $newTotal;
-				$can->recordTime 	= time();
-				$can->insert();
+				try{
+					$can = new Can();
+					$can->tableName 	= $tableName;
+					$can->maxID			= $newMaxID;
+					$can->sectionTime 	= 0;
+					$can->addition 		= $addition;
+					$can->total 		= $newTotal;
+					$can->recordTime 	= time();
+					$can->insert();
+				}catch (Exception $e) {
+				$transaction->rollback();
+				$flag= "SYSTEM_BUSY";
+				return $flag;
+				}
 			}else if($r['byID'] == 0 && $r['byTime'] == 1){
 				$lastTime = WCan::getLastMaxTimeByTableName($tableName);
-				$dba = Yii::app()->db;
 				$cmd = $dba->createCommand("
 					select max($r[colName]) as lastTime,count(*) as total
 					from $tableName
@@ -72,17 +77,22 @@ class CollecterCommand extends CConsoleCommand{
 				");
 				$res = $cmd->queryRow(true,array(':lastTime' => $lastTime));
 				$addition = (int)$res['addition'];
-				$can = new Can();
-				$can->tableName 	= $tableName;
-				$can->maxID			= 0;
-				$can->sectionTime 	= $newLastTime;
-				$can->addition 		= $addition;
-				$can->total 		= $newTotal;
-				$can->recordTime 	= time();
-				$can->insert();
+				try{
+					$can = new Can();
+					$can->tableName 	= $tableName;
+					$can->maxID			= 0;
+					$can->sectionTime 	= $newLastTime;
+					$can->addition 		= $addition;
+					$can->total 		= $newTotal;
+					$can->recordTime 	= time();
+					$can->insert();
+				}catch (Exception $e) {
+				$transaction->rollback();
+				$flag= "SYSTEM_BUSY";
+				return $flag;
+				}
 			}else{
 				$lastCount = WCan::getLastCountByTableName($tableName);
-				$dba = Yii::app()->db;
 				$cmd = $dba->createCommand("
 					select count(*) as total
 					from $tableName
@@ -90,14 +100,20 @@ class CollecterCommand extends CConsoleCommand{
 				$res = $cmd->queryRow(true,array());
 				$newTotal = $res['total'];
 				$addition = $newTotal - $lastCount;
-				$can = new Can();
-				$can->tableName 	= $tableName;
-				$can->maxID			= 0;
-				$can->sectionTime 	= 0;
-				$can->addition 		= $addition;
-				$can->total 		= (int)$newTotal;
-				$can->recordTime 	= time();
-				$can->insert();
+				try{
+					$can = new Can();
+					$can->tableName 	= $tableName;
+					$can->maxID			= 0;
+					$can->sectionTime 	= 0;
+					$can->addition 		= $addition;
+					$can->total 		= (int)$newTotal;
+					$can->recordTime 	= time();
+					$can->insert();
+				}catch (Exception $e) {
+				$transaction->rollback();
+				$flag= "SYSTEM_BUSY";
+				return $flag;
+				}
 			}
 		}
 		echo "new document inserted into mongodb\n";
