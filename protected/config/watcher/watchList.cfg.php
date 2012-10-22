@@ -4,7 +4,7 @@ return array(
 	'admin' => array('tableName' => 'admin', 'byID' => 1, 'byTime' => 0, 'colName' => 'adminId'),
 	'admin_operate_log' => array('tableName' => 'admin_operate_log', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
 	'adw_app_driver_log' => array('tableName' => 'adw_app_driver_log', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
-	'androidPayBill' => array('tableName' => 'androidPayBill', 'byID' => 0, 'byTime' => 1, 'colName' => 'update_time'),
+	/*'androidPayBill' => array('tableName' => 'androidPayBill', 'byID' => 0, 'byTime' => 1, 'colName' => 'update_time'),
 	'arena' => array('tableName' => 'arena', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
 	'arena_battle_log' => array('tableName' => 'arena_battle_log', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
 	'arena_rank' => array('tableName' => 'arena_rank', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
@@ -171,6 +171,6 @@ return array(
 	'vip_player' => array('tableName' => 'vip_player', 'byID' => 0, 'byTime' => 1, 'colName' => 'update_time'),
 	'waterLog' => array('tableName' => 'waterLog', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
 	'weather_pridict' => array('tableName' => 'weather_pridict', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
-	'WebmoneyTransaction' => array('tableName' => 'WebmoneyTransaction', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
+	'WebmoneyTransaction' => array('tableName' => 'WebmoneyTransaction', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),*/
 );
 ?>
