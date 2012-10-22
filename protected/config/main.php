@@ -55,10 +55,10 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=192.168.1.137;dbname=ninja',
+			'connectionString' => 'mysql:host=192.168.7.49:8188;dbname=ninja',
 			'emulatePrepare' => true,
-			'username' => 'ninja-m',
-			'password' => 'ninjaFtFt05ab',
+			'username' => 'mars_read',
+			'password' => 'FtFt05ab',
 			'charset' => 'utf8',
 		),
 		
