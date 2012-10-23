@@ -90,8 +90,7 @@ return array(
 		
 		'mongodb' => array(
 	        'class'             => 'EMongoDB',
-	       //'connectionString'  => 'mongodb://192.168.1.73',
-			'connectionString'  => 'mongodb://127.0.0.1',
+			'connectionString'  => 'mongodb://192.168.1.73',
 	        'dbName'            => 'watcher',
 	        'fsyncFlag'         => false,
 	        'safeFlag'          => false,
