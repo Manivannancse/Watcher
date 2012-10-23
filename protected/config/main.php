@@ -53,7 +53,13 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
 		// uncomment the following to use a MySQL database
-		
+		/*'db'=>array(
+			'connectionString' => 'mysql:host=192.168.1.137;dbname=ninja',
+			'emulatePrepare' => true,
+			'username' => 'ninja-m',
+			'password' => 'ninjaFtFt05ab',
+			'charset' => 'utf8',
+		),*/
 		'db'=>array(
 			'connectionString' => 'mysql:host=192.168.7.49:8188;dbname=ninja',
 			'emulatePrepare' => true,
@@ -84,7 +90,8 @@ return array(
 		
 		'mongodb' => array(
 	        'class'             => 'EMongoDB',
-	        'connectionString'  => 'mongodb://192.168.1.73',
+	       //'connectionString'  => 'mongodb://192.168.1.73',
+			'connectionString'  => 'mongodb://127.0.0.1',
 	        'dbName'            => 'watcher',
 	        'fsyncFlag'         => false,
 	        'safeFlag'          => false,
