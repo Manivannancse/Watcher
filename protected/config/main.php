@@ -61,7 +61,7 @@ return array(
 			'charset' => 'utf8',
 		),*/
 		'db'=>array(
-			'connectionString' => 'mysql:host=192.168.7.49:8188;dbname=ninja',
+			'connectionString' => 'mysql:host=192.168.7.49;dbname=ninja;port:8188',
 			'emulatePrepare' => true,
 			'username' => 'mars_read',
 			'password' => 'FtFt05ab',
