@@ -194,3 +194,587 @@ Stack trace:
 #5 E:\website\yii\framework\base\CApplication.php(158): CConsoleApplication->processRequest()
 #6 E:\website\Watcher\protected\commands\run_cron.php(18): CApplication->run()
 #7 {main}
+2012/10/23 09:27:39 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from bigTreeLog
+					.
+2012/10/23 09:27:43 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.defence_rank_count' doesn't exist. The SQL statement executed was: 
+						select max(player_id) as maxID,count(*) as total
+						from defence_rank_count
+					.
+2012/10/23 09:27:47 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farm' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farm
+					.
+2012/10/23 09:27:47 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farmland' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farmland
+					.
+2012/10/23 09:27:47 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farmmsg' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farmmsg
+					.
+2012/10/23 09:28:04 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.harvestLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from harvestLog
+					.
+2012/10/23 09:28:04 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.help_rank_count' doesn't exist. The SQL statement executed was: 
+						select max(update_time) as lastTime,count(*) as total
+						from help_rank_count
+					.
+2012/10/23 09:28:07 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list'. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from lord_rank
+					.
+2012/10/23 09:28:16 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.magic_hs' doesn't exist. The SQL statement executed was: 
+						select count(*) as total
+						from magic_hs
+					.
+2012/10/23 09:28:16 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.memberNews' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from memberNews
+					.
+2012/10/23 09:28:16 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.memberTalent' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from memberTalent
+					.
+2012/10/23 09:28:36 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.pickLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from pickLog
+					.
+2012/10/23 09:28:56 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.player_epic_fight_st_hs' doesn't exist. The SQL statement executed was: 
+						select max(record_time) as lastTime,count(*) as total
+						from player_epic_fight_st_hs
+					.
+2012/10/23 09:29:35 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.playerDrug' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from playerDrug
+					.
+2012/10/23 09:29:42 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.seed' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from seed
+					.
+2012/10/23 09:29:42 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.society' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from society
+					.
+2012/10/23 09:29:43 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyApply' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyApply
+					.
+2012/10/23 09:29:43 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyBulletin' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyBulletin
+					.
+2012/10/23 09:29:43 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyBuyLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyBuyLog
+					.
+2012/10/23 09:29:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyCall' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyCall
+					.
+2012/10/23 09:29:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyChat' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyChat
+					.
+2012/10/23 09:29:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEpic' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEpic
+					.
+2012/10/23 09:29:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEquipMagic' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEquipMagic
+					.
+2012/10/23 09:29:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEquipStore' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEquipStore
+					.
+2012/10/23 09:29:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyGoods' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyGoods
+					.
+2012/10/23 09:29:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyGoodsHS' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyGoodsHS
+					.
+2012/10/23 09:29:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyMember' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyMember
+					.
+2012/10/23 09:29:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyMemberHS' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyMemberHS
+					.
+2012/10/23 09:29:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyNews' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyNews
+					.
+2012/10/23 09:29:45 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyRank' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyRank
+					.
+2012/10/23 09:29:45 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyTalent' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyTalent
+					.
+2012/10/23 09:29:45 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.soul_energy_reward' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from soul_energy_reward
+					.
+2012/10/23 09:29:45 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.soul_use_record_copy' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from soul_use_record_copy
+					.
+2012/10/23 09:29:51 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.waterLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from waterLog
+					.
+2012/10/23 09:38:35 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from bigTreeLog
+					.
+2012/10/23 09:38:39 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.defence_rank_count' doesn't exist. The SQL statement executed was: 
+						select max(player_id) as maxID,count(*) as total
+						from defence_rank_count
+					.
+2012/10/23 09:38:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farm' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farm
+					.
+2012/10/23 09:38:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farmland' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farmland
+					.
+2012/10/23 09:38:45 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farmmsg' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farmmsg
+					.
+2012/10/23 09:38:53 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.harvestLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from harvestLog
+					.
+2012/10/23 09:38:54 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.help_rank_count' doesn't exist. The SQL statement executed was: 
+						select max(update_time) as lastTime,count(*) as total
+						from help_rank_count
+					.
+2012/10/23 09:38:56 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list'. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from lord_rank
+					.
+2012/10/23 09:39:03 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.magic_hs' doesn't exist. The SQL statement executed was: 
+						select count(*) as total
+						from magic_hs
+					.
+2012/10/23 09:39:03 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.memberNews' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from memberNews
+					.
+2012/10/23 09:39:03 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.memberTalent' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from memberTalent
+					.
+2012/10/23 09:39:16 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.pickLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from pickLog
+					.
+2012/10/23 09:39:28 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.player_epic_fight_st_hs' doesn't exist. The SQL statement executed was: 
+						select max(record_time) as lastTime,count(*) as total
+						from player_epic_fight_st_hs
+					.
+2012/10/23 09:39:52 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.playerDrug' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from playerDrug
+					.
+2012/10/23 09:39:57 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.seed' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from seed
+					.
+2012/10/23 09:39:57 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.society' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from society
+					.
+2012/10/23 09:39:57 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyApply' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyApply
+					.
+2012/10/23 09:39:57 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyBulletin' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyBulletin
+					.
+2012/10/23 09:39:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyBuyLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyBuyLog
+					.
+2012/10/23 09:39:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyCall' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyCall
+					.
+2012/10/23 09:39:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyChat' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyChat
+					.
+2012/10/23 09:39:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEpic' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEpic
+					.
+2012/10/23 09:39:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEquipMagic' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEquipMagic
+					.
+2012/10/23 09:39:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEquipStore' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEquipStore
+					.
+2012/10/23 09:39:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyGoods' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyGoods
+					.
+2012/10/23 09:39:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyGoodsHS' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyGoodsHS
+					.
+2012/10/23 09:39:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyMember' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyMember
+					.
+2012/10/23 09:39:59 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyMemberHS' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyMemberHS
+					.
+2012/10/23 09:39:59 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyNews' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyNews
+					.
+2012/10/23 09:39:59 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyRank' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyRank
+					.
+2012/10/23 09:39:59 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyTalent' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyTalent
+					.
+2012/10/23 09:39:59 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.soul_energy_reward' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from soul_energy_reward
+					.
+2012/10/23 09:40:00 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.soul_use_record_copy' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from soul_use_record_copy
+					.
+2012/10/23 09:40:04 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.waterLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from waterLog
+					.
+2012/10/23 09:45:41 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from bigTreeLog
+					.
+2012/10/23 09:45:46 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.defence_rank_count' doesn't exist. The SQL statement executed was: 
+						select max(player_id) as maxID,count(*) as total
+						from defence_rank_count
+					.
+2012/10/23 09:45:51 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farm' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farm
+					.
+2012/10/23 09:45:51 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farmland' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farmland
+					.
+2012/10/23 09:45:51 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farmmsg' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farmmsg
+					.
+2012/10/23 09:45:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.harvestLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from harvestLog
+					.
+2012/10/23 09:45:58 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.help_rank_count' doesn't exist. The SQL statement executed was: 
+						select max(update_time) as lastTime,count(*) as total
+						from help_rank_count
+					.
+2012/10/23 09:46:02 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list'. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from lord_rank
+					.
+2012/10/23 09:46:09 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.magic_hs' doesn't exist. The SQL statement executed was: 
+						select count(*) as total
+						from magic_hs
+					.
+2012/10/23 09:46:09 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.memberNews' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from memberNews
+					.
+2012/10/23 09:46:09 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.memberTalent' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from memberTalent
+					.
+2012/10/23 09:46:24 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.pickLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from pickLog
+					.
+2012/10/23 09:46:35 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.player_epic_fight_st_hs' doesn't exist. The SQL statement executed was: 
+						select max(record_time) as lastTime,count(*) as total
+						from player_epic_fight_st_hs
+					.
+2012/10/23 09:47:00 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.playerDrug' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from playerDrug
+					.
+2012/10/23 09:47:14 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.seed' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from seed
+					.
+2012/10/23 09:47:14 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.society' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from society
+					.
+2012/10/23 09:47:14 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyApply' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyApply
+					.
+2012/10/23 09:47:14 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyBulletin' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyBulletin
+					.
+2012/10/23 09:47:14 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyBuyLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyBuyLog
+					.
+2012/10/23 09:47:14 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyCall' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyCall
+					.
+2012/10/23 09:47:15 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyChat' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyChat
+					.
+2012/10/23 09:47:15 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEpic' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEpic
+					.
+2012/10/23 09:47:16 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEquipMagic' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEquipMagic
+					.
+2012/10/23 09:47:16 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEquipStore' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEquipStore
+					.
+2012/10/23 09:47:17 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyGoods' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyGoods
+					.
+2012/10/23 09:47:17 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyGoodsHS' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyGoodsHS
+					.
+2012/10/23 09:47:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyMember' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyMember
+					.
+2012/10/23 09:47:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyMemberHS' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyMemberHS
+					.
+2012/10/23 09:47:20 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyNews' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyNews
+					.
+2012/10/23 09:47:21 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyRank' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyRank
+					.
+2012/10/23 09:47:21 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyTalent' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyTalent
+					.
+2012/10/23 09:47:21 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.soul_energy_reward' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from soul_energy_reward
+					.
+2012/10/23 09:47:23 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.soul_use_record_copy' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from soul_use_record_copy
+					.
+2012/10/23 09:47:34 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.waterLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from waterLog
+					.
+2012/10/23 09:47:48 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from bigTreeLog
+					.
+2012/10/23 09:47:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist' in H:\website\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 H:\website\yii\framework\db\CDbCommand.php(393): CDbCommand->queryInternal('fetch', Array, Array)
+#1 H:\website\Watcher\protected\commands\script\CollecterCommand.php(39): CDbCommand->queryRow(true, Array)
+#2 H:\website\Watcher\protected\commands\script\CollecterCommand.php(7): CollecterCommand->insert()
+#3 H:\website\yii\framework\console\CConsoleCommandRunner.php(63): CollecterCommand->run(Array)
+#4 H:\website\yii\framework\console\CConsoleApplication.php(88): CConsoleCommandRunner->run(Array)
+#5 H:\website\yii\framework\base\CApplication.php(158): CConsoleApplication->processRequest()
+#6 H:\website\Watcher\protected\commands\run_cron.php(18): CApplication->run()
+#7 {main}
+2012/10/23 10:10:36 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from bigTreeLog
+					.
+2012/10/23 10:11:25 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from bigTreeLog
+					.
+2012/10/23 10:11:59 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from bigTreeLog
+					.
+2012/10/23 10:12:48 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from bigTreeLog
+					.
+2012/10/23 10:12:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist' in H:\website\yii\framework\db\CDbCommand.php:516
+Stack trace:
+#0 H:\website\yii\framework\db\CDbCommand.php(393): CDbCommand->queryInternal('fetch', Array, Array)
+#1 H:\website\Watcher\protected\commands\script\CollecterCommand.php(39): CDbCommand->queryRow(true, Array)
+#2 H:\website\Watcher\protected\commands\script\CollecterCommand.php(7): CollecterCommand->insert()
+#3 H:\website\yii\framework\console\CConsoleCommandRunner.php(63): CollecterCommand->run(Array)
+#4 H:\website\yii\framework\console\CConsoleApplication.php(88): CConsoleCommandRunner->run(Array)
+#5 H:\website\yii\framework\base\CApplication.php(158): CConsoleApplication->processRequest()
+#6 H:\website\Watcher\protected\commands\run_cron.php(18): CApplication->run()
+#7 {main}
+2012/10/23 10:13:30 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.bigTreeLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from bigTreeLog
+					.
+2012/10/23 10:13:34 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.defence_rank_count' doesn't exist. The SQL statement executed was: 
+						select max(player_id) as maxID,count(*) as total
+						from defence_rank_count
+					.
+2012/10/23 10:13:38 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farm' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farm
+					.
+2012/10/23 10:13:38 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farmland' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farmland
+					.
+2012/10/23 10:13:38 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.farmmsg' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from farmmsg
+					.
+2012/10/23 10:13:51 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.harvestLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from harvestLog
+					.
+2012/10/23 10:13:52 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.help_rank_count' doesn't exist. The SQL statement executed was: 
+						select max(update_time) as lastTime,count(*) as total
+						from help_rank_count
+					.
+2012/10/23 10:13:54 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list'. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from lord_rank
+					.
+2012/10/23 10:14:01 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.magic_hs' doesn't exist. The SQL statement executed was: 
+						select count(*) as total
+						from magic_hs
+					.
+2012/10/23 10:14:01 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.memberNews' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from memberNews
+					.
+2012/10/23 10:14:02 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.memberTalent' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from memberTalent
+					.
+2012/10/23 10:14:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.pickLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from pickLog
+					.
+2012/10/23 10:14:36 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.player_epic_fight_st_hs' doesn't exist. The SQL statement executed was: 
+						select max(record_time) as lastTime,count(*) as total
+						from player_epic_fight_st_hs
+					.
+2012/10/23 10:15:13 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.playerDrug' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from playerDrug
+					.
+2012/10/23 10:15:18 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.seed' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from seed
+					.
+2012/10/23 10:15:18 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.society' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from society
+					.
+2012/10/23 10:15:18 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyApply' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyApply
+					.
+2012/10/23 10:15:18 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyBulletin' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyBulletin
+					.
+2012/10/23 10:15:18 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyBuyLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyBuyLog
+					.
+2012/10/23 10:15:18 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyCall' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyCall
+					.
+2012/10/23 10:15:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyChat' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyChat
+					.
+2012/10/23 10:15:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEpic' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEpic
+					.
+2012/10/23 10:15:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEquipMagic' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEquipMagic
+					.
+2012/10/23 10:15:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyEquipStore' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyEquipStore
+					.
+2012/10/23 10:15:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyGoods' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyGoods
+					.
+2012/10/23 10:15:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyGoodsHS' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyGoodsHS
+					.
+2012/10/23 10:15:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyMember' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyMember
+					.
+2012/10/23 10:15:19 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyMemberHS' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyMemberHS
+					.
+2012/10/23 10:15:20 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyNews' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyNews
+					.
+2012/10/23 10:15:20 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyRank' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyRank
+					.
+2012/10/23 10:15:20 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.societyTalent' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from societyTalent
+					.
+2012/10/23 10:15:20 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.soul_energy_reward' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from soul_energy_reward
+					.
+2012/10/23 10:15:21 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.soul_use_record_copy' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from soul_use_record_copy
+					.
+2012/10/23 10:15:25 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ninja.waterLog' doesn't exist. The SQL statement executed was: 
+						select max(id) as maxID,count(*) as total
+						from waterLog
+					.

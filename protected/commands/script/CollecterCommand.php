@@ -29,24 +29,24 @@ class CollecterCommand extends CConsoleCommand{
 		$tableAttr = Util::loadconfig('watchList');
 		$dba = Yii::app()->db;
 		foreach($tableAttr as $tableName => $r){
-			if($r['byID'] == 1 && $r['byTime'] == 0){
-				$lastMaxID = WCan::getLastMaxIDByTableName($tableName);
-				$cmd = $dba->createCommand("
-					select max($r[colName]) as maxID,count(*) as total
-					from $tableName
-				");
-				$res = $cmd->queryRow(true,array());
-				$newMaxID = (int)$res['maxID'];
-				$newTotal = (int)$res['total'];
-				
-				$cmd = $dba->createCommand("
-					select count(*) as addition
-					from $tableName
-					where $r[colName]>:lastMaxID
-				");
-				$res = $cmd->queryRow(true,array(':lastMaxID' => $lastMaxID));
-				$addition = (int)$res['addition'];
-				try{
+			try{
+				if($r['byID'] == 1 && $r['byTime'] == 0){
+					$lastMaxID = WCan::getLastMaxIDByTableName($tableName);
+					$cmd = $dba->createCommand("
+						select max($r[colName]) as maxID,count(*) as total
+						from $tableName
+					");
+					$res = $cmd->queryRow(true,array());
+					$newMaxID = (int)$res['maxID'];
+					$newTotal = (int)$res['total'];
+					
+					$cmd = $dba->createCommand("
+						select count(*) as addition
+						from $tableName
+						where $r[colName]>:lastMaxID
+					");
+					$res = $cmd->queryRow(true,array(':lastMaxID' => $lastMaxID));
+					$addition = (int)$res['addition'];
 					$can = new Can();
 					$can->tableName 	= $tableName;
 					$can->maxID			= $newMaxID;
@@ -55,29 +55,23 @@ class CollecterCommand extends CConsoleCommand{
 					$can->total 		= $newTotal;
 					$can->recordTime 	= time();
 					$can->insert();
-				}catch (Exception $e) {
-				$transaction->rollback();
-				$flag= "SYSTEM_BUSY";
-				return $flag;
-				}
-			}else if($r['byID'] == 0 && $r['byTime'] == 1){
-				$lastTime = WCan::getLastMaxTimeByTableName($tableName);
-				$cmd = $dba->createCommand("
-					select max($r[colName]) as lastTime,count(*) as total
-					from $tableName
-				");
-				$res = $cmd->queryRow(true,array());
-				$newLastTime = (int)$res['lastTime'];
-				$newTotal = (int)$res['total'];
-				
-				$cmd = $dba->createCommand("
-					select count(*) as addition
-					from $tableName
-					where $r[colName]>:lastTime
-				");
-				$res = $cmd->queryRow(true,array(':lastTime' => $lastTime));
-				$addition = (int)$res['addition'];
-				try{
+				}else if($r['byID'] == 0 && $r['byTime'] == 1){
+					$lastTime = WCan::getLastMaxTimeByTableName($tableName);
+					$cmd = $dba->createCommand("
+						select max($r[colName]) as lastTime,count(*) as total
+						from $tableName
+					");
+					$res = $cmd->queryRow(true,array());
+					$newLastTime = (int)$res['lastTime'];
+					$newTotal = (int)$res['total'];
+					
+					$cmd = $dba->createCommand("
+						select count(*) as addition
+						from $tableName
+						where $r[colName]>:lastTime
+					");
+					$res = $cmd->queryRow(true,array(':lastTime' => $lastTime));
+					$addition = (int)$res['addition'];
 					$can = new Can();
 					$can->tableName 	= $tableName;
 					$can->maxID			= 0;
@@ -86,21 +80,15 @@ class CollecterCommand extends CConsoleCommand{
 					$can->total 		= $newTotal;
 					$can->recordTime 	= time();
 					$can->insert();
-				}catch (Exception $e) {
-				$transaction->rollback();
-				$flag= "SYSTEM_BUSY";
-				return $flag;
-				}
-			}else{
-				$lastCount = WCan::getLastCountByTableName($tableName);
-				$cmd = $dba->createCommand("
-					select count(*) as total
-					from $tableName
-				");
-				$res = $cmd->queryRow(true,array());
-				$newTotal = $res['total'];
-				$addition = $newTotal - $lastCount;
-				try{
+				}else{
+					$lastCount = WCan::getLastCountByTableName($tableName);
+					$cmd = $dba->createCommand("
+						select count(*) as total
+						from $tableName
+					");
+					$res = $cmd->queryRow(true,array());
+					$newTotal = $res['total'];
+					$addition = $newTotal - $lastCount;
 					$can = new Can();
 					$can->tableName 	= $tableName;
 					$can->maxID			= 0;
@@ -109,11 +97,9 @@ class CollecterCommand extends CConsoleCommand{
 					$can->total 		= (int)$newTotal;
 					$can->recordTime 	= time();
 					$can->insert();
-				}catch (Exception $e) {
-				$transaction->rollback();
-				$flag= "SYSTEM_BUSY";
-				return $flag;
 				}
+			}catch (Exception $e) {
+				continue;
 			}
 		}
 		echo "new document inserted into mongodb\n";
