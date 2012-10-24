@@ -1,3 +1,5 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="language" content="en" /> 
 <?php
 
 class SiteController extends Controller{
@@ -24,8 +26,42 @@ class SiteController extends Controller{
 	 * when an action is not explicitly requested by users.
 	 */
 	public function actionIndex(){
-		$this->render('index');
+		$this->render('login');
+	}
+	public function actionLogin(){ 
+		$this->render('login');
+	}
+	public function actionCheck(){ 
+		$userName = isset($_REQUEST['username']) ? $_REQUEST['username'] : 0;
+		$password = isset($_REQUEST['password']) ? $_REQUEST['password'] : 0;
+		$flag = WWatcher::checkName($userName,$password);
+		if($flag){
+			$this->render('index',array());
+		}else{
+			$this->render('check',array(
+				'username' => $userName,
+				'password' => $password,
+				'flag'     =>$flag,
+			));
+		}
+	}
+	public function actionSign(){ 
+		$this->render('sign');
+	}
+	public function actionInsert(){ 
+		$userName = isset($_REQUEST['username']) ? $_REQUEST['username'] : 0;
+		$email = isset($_REQUEST['email']) ? $_REQUEST['email'] : 0;
+		$password = isset($_REQUEST['password']) ? $_REQUEST['password'] : 0;
+		$flag = WWatcher::insertMongo($userName,$email,$password);
+		if($flag){
+			$this->render('login',array());
+		}else{
+			$this->render('insert',array(
+				'username' => $userName,
+				'password' => $password,
+				'flag'     =>$flag,
+			));
+		}
 	}
 
-	
 }
