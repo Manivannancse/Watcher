@@ -24,7 +24,9 @@ class Controller extends CController{
 		$session = new CHttpSession;
 		$session->open();
 		
-		if(isset($_SESSION['watcherID']) && $_SESSION['watcherID']){
+		//$controllerID = $action->getController()->getId();
+		$actionID = $action->getController()->getAction()->getId();
+		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID']) || $actionID == 'sign'){
 			return true;
 		}else{
 			$action->getController()->render('/site/login');
