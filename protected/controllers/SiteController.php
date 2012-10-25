@@ -26,10 +26,18 @@ class SiteController extends Controller{
 	 * when an action is not explicitly requested by users.
 	 */
 	public function actionIndex(){
-		$this->render('login');
+		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID'])){
+			$this->render('index');
+		}else{
+			$this->render('login');
+		}
 	}
 	public function actionLogin(){ 
-		$this->render('login');
+		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID'])){
+			$this->render('index');
+		}else{
+			$this->render('login');
+		}
 	}
 	public function actionCheck(){ 
 		$userName = isset($_REQUEST['username']) ? $_REQUEST['username'] : 0;
