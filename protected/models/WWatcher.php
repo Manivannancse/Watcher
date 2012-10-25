@@ -22,6 +22,7 @@ class WWatcher{
 		$criteria->auth = 1;
 		$onePerson = $watcher->find($criteria);
 		if ($onePerson) {
+			$_SESSION['watcherID'] = $onePerson->_id;
 			return  true;
 		}
 		return false;
@@ -44,5 +45,5 @@ class WWatcher{
 			return false;
 		}
 	}
-	
 }
+?>
