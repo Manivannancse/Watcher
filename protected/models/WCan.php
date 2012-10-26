@@ -65,8 +65,7 @@ class WCan{
 	 */
 	public static function getLatestRecordByTableName($tableName){
 		$watchList = Util::loadconfig('watchList');
-		//if ($tableName && array_key_exists($tableName, $watchList)) {
-		if ($tableName) {
+		if ($tableName && array_key_exists($tableName, $watchList)) {
 			$can 		= new Can();
 			$criteria 	= new EMongoCriteria();
 			$criteria->tableName = $tableName;
@@ -131,7 +130,27 @@ class WCan{
 		return 0;
 	}
 	
-	
+	/**
+	 * 
+	 * 获取某张表的最近数据
+	 * @param	table's name			$tableName
+	 * @param	xxxx-xx-xx xx:xx:xx		$startTime
+	 * @param	xxxx-xx-xx xx:xx:xx		$endTime
+	 */
+	public static function getTableInfo($tableName,$startTime,$endTime){
+		$result = array();
+		$watchList = Util::loadconfig('watchList');
+		if ($tableName && array_key_exists($tableName, $watchList)) {
+			$can 		= new Can();
+			$criteria 	= new EMongoCriteria();
+			$criteria->tableName = $tableName;
+			$criteria->recordTime('>=',strtotime($startTime));
+			$criteria->recordTime('<=',strtotime($endTime));
+			$criteria->sort('recordTime', EMongoCriteria::SORT_DESC);
+			$result = $can->findAll($criteria);
+		}
+		return $result;
+	}
 	
 	
 	

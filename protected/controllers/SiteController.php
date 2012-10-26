@@ -1,7 +1,4 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="language" content="en" /> 
 <?php
-
 class SiteController extends Controller{
 	/**
 	 * Declares class-based actions.
@@ -73,3 +70,5 @@ class SiteController extends Controller{
 	}
 
 }
+
+?>
