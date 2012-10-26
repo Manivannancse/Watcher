@@ -167,3 +167,4 @@ protected/config/main.php
 logs/*.log
 protected/runtime/*.log
 .log
+index.php
