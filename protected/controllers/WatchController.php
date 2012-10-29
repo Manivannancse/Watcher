@@ -1,5 +1,6 @@
 <?php
 class WatchController extends Controller{
+	public $layout = "application.views.layouts.char";
 	/**
 	 * Declares class-based actions.
 	 */
@@ -29,6 +30,21 @@ class WatchController extends Controller{
 		
 		$watcher = new WWatcher($_SESSION['watcherID'], NULL);
 		Util::dump($watcher->getTableInfo($tableName, $startTime, $endTime));
+	}
+	
+	public function actionTestChart(){
+		$pc = new C_PhpChartX(array(array(11, 9, 5, 12, 14),array(1,2,3,4,5)),'basic_chart');
+		$pc->set_animate(true);
+		$pc->set_title(array('text' => 'javaXu'));
+		$pc->set_series_default(array('renderer'=>'plugin::BarRenderer'));
+		$pc->add_plugins(array('highlighter', 'cursor'));
+		$this->render('testChart',array(
+			'pc' => $pc
+		));
+	}
+	
+	public function actionTestChart2(){
+		$this->render('testChart2');
 	}
 
 }

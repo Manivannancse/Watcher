@@ -73,16 +73,20 @@ class WWatcher{
 		if(!$userName || !$email || !$password){
 			return false;
 		}
-		$watcher 				= new Watcher();
-		$watcher->name 			= $userName;
-		$watcher->email 		= $email;
-		$watcher->pwd 			= $password;
-		$watcher->lastLoginTime = time();
-		$watcher->auth 			= 1;
-		$watcher->insert();
-		if ($watcher->_id) {
-			return  true;
-		}else{
+		try{
+			$watcher 				= new Watcher();
+			$watcher->name 			= $userName;
+			$watcher->email 		= $email;
+			$watcher->pwd 			= $password;
+			$watcher->lastLoginTime = time();
+			$watcher->auth 			= 1;
+			$watcher->insert();
+			if ($watcher->_id) {
+				return  true;
+			}else{
+				return false;
+			}
+		}catch (Exception $e){
 			return false;
 		}
 	}

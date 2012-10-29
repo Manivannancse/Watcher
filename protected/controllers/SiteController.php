@@ -54,10 +54,10 @@ class SiteController extends Controller{
 		$this->render('sign');
 	}
 	public function actionInsert(){ 
-		$userName = isset($_REQUEST['username']) ? $_REQUEST['username'] : 0;
-		$email = isset($_REQUEST['email']) ? $_REQUEST['email'] : 0;
-		$password = isset($_REQUEST['password']) ? $_REQUEST['password'] : 0;
-		$flag = WWatcher::insertMongo($userName,$email,$password);
+		$userName 	= isset($_REQUEST['username']) ? $_REQUEST['username'] : 0;
+		$email 		= isset($_REQUEST['email']) ? $_REQUEST['email'] : 0;
+		$password 	= isset($_REQUEST['password']) ? $_REQUEST['password'] : 0;
+		$flag 		= WWatcher::insertMongo($userName,$email,$password);
 		if($flag){
 			$this->render('login',array());
 		}else{
