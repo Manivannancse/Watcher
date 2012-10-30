@@ -30,8 +30,10 @@ class SiteController extends Controller{
 		}
 	}
 	public function actionLogin(){ 
-		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID'])){
-			$this->render('index');
+		$watcherID 	= isset($_SESSION['watcherID']) ? $_SESSION['watcherID'] : '';
+		$watcher	= new WWatcher($watcherID, null);
+		if ($watcher && $watcher->valid()) {
+			$this->redirect("index.php?r=watch/testChart");
 		}else{
 			$this->render('login');
 		}

@@ -1,22 +1,14 @@
-<?php
-$pc->draw();
-?>
+<div>
+	<div id="watcherDiv" class="watcher">Watcher:<?=$watcher->getName()?></div>
+	<div id="tools" style="display:none"></div>
+	<div id="chart" style="position:absolute;top:80px;left:350px">
+		<?php 
+			$pc->draw();
+		?>
+	</div>
+</div>
 
 <script>
-var _basic_chart_plot_properties;
-$(document).ready(function(){ 
-setTimeout( function() { 
-_basic_chart_plot_properties = [
-  
-]
-
-
-
-$.jqplot.config.enablePlugins = 0;
-$.jqplot.config.defaultHeight = 300;
-$.jqplot.config.defaultWidth  = 400;
- _basic_chart= $.jqplot("basic_chart", [[11,9,5,12,14]], _basic_chart_plot_properties);
-
-}, 200 );
-});
+$("#tools").html("adf");
+$("#tools").show();
 </script>

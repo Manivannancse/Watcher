@@ -1,6 +1,6 @@
 <?php
 class WatchController extends Controller{
-	public $layout = "application.views.layouts.char";
+	public $layout = "application.views.layouts.chart";
 	/**
 	 * Declares class-based actions.
 	 */
@@ -33,14 +33,20 @@ class WatchController extends Controller{
 	}
 	
 	public function actionTestChart(){
-		$pc = new C_PhpChartX(array(array(11, 9, 5, 12, 14),array(1,2,3,4,5)),'basic_chart');
-		$pc->set_animate(true);
-		$pc->set_title(array('text' => 'javaXu'));
-		$pc->set_series_default(array('renderer'=>'plugin::BarRenderer'));
-		$pc->add_plugins(array('highlighter', 'cursor'));
-		$this->render('testChart',array(
-			'pc' => $pc
-		));
+		$watcher 	= new WWatcher($_SESSION['watcherID'], NULL);
+		if ($watcher && $watcher->valid()) {
+			$pc 		= new C_PhpChartX(array(array(11, 9, 5, 12, 14),array(1,2,3,4,5)),'basic_chart');
+			$pc->set_animate(true);
+			$pc->set_title(array('text' => 'javaXu'));
+			$pc->set_series_default(array('renderer'=>'plugin::BarRenderer'));
+			$pc->add_plugins(array('highlighter', 'cursor'));
+			$this->render('testChart',array(
+				'pc' 		=> $pc,
+				'watcher' 	=> $watcher,
+			));
+		}else{
+			$this->redirect('index.php?r=site/login');
+		}
 	}
 	
 	public function actionTestChart2(){

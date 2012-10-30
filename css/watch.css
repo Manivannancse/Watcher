@@ -1,0 +1,12 @@
+@CHARSET "UTF8";
+
+.watcher{
+	position:absolute;
+	top:20px;
+	left:20px;
+	background-color:blue;
+	color:white;
+	width:150px;
+	height:40px;
+	line-height:40px;
+}

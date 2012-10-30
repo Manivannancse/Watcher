@@ -24,6 +24,7 @@ class WWatcher{
 		if (!$dbRecord) {
 			$dbRecord = Watcher::model()->findByPk($_id);
 		}
+		self::__init($dbRecord);
 	}
 	
 	/**
@@ -89,6 +90,14 @@ class WWatcher{
 		}catch (Exception $e){
 			return false;
 		}
+	}
+	
+	/**
+	 * 
+	 * get watcher's name
+	 */
+	public function getName(){
+		return self::valid() ? $this->name : 'invalid watcher';
 	}
 	
 	/**
