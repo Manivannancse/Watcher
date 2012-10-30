@@ -54,14 +54,20 @@ class WatchController extends Controller{
 		
 		$watcher 	= new WWatcher($_SESSION['watcherID'], NULL);
 		$dataList 	= $watcher->getTabelChartData($tableName, $startTime, $endTime);
-		$pc 		= new C_PhpChartX(array($dataList['addition']),'basic_chart');
+		$dataVal	= $dataList['addition'];
+		$dataIndex	= $dataList['index'];
+		$pc 		= new C_PhpChartX(array($dataVal),'basic_chart');
 		$pc->set_animate(true);
 		$pc->set_title(array('text' => $tableName));
 		$pc->add_plugins(array('cursor'));
 		$pc->set_cursor(array('show'=>true,'zoom'=>true));
 		$this->render('tableGrow',array(
+			'dataVal'	=> $dataVal,
 			'pc' 		=> $pc,
 			'watcher' 	=> $watcher,
+			'tableName'	=> $tableName,
+			'startTime'	=> $startTime,
+			'endTime'	=> $endTime,
 		));
 	}
 	
