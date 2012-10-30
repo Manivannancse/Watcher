@@ -163,7 +163,6 @@ pip-log.txt
 .DS_Store
 
 # log files
-protected/config/main.php
 logs/*.log
 protected/runtime/*.log
 .log
