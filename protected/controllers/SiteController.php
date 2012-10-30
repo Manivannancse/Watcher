@@ -24,17 +24,20 @@ class SiteController extends Controller{
 	 */
 	public function actionIndex(){
 		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID'])){
-			$this->render('index');
+			$this->redirect("index.php?r=watch/getTableInfo");
 		}else{
 			$this->render('login');
 		}
 	}
 	public function actionLogin(){ 
-		$watcherID 	= isset($_SESSION['watcherID']) ? $_SESSION['watcherID'] : '';
+		$watcherID 		= isset($_SESSION['watcherID']) ? $_SESSION['watcherID'] : '';
+		$watcherName	= isset($_SESSION['watcherName']) ? $_SESSION['watcherName'] : '';
 		$watcher	= new WWatcher($watcherID, null);
-		if ($watcher && $watcher->valid()) {
+		if ($watcher && $watcher->valid() && $watcher->getName() == $watcherName) {
 			$this->redirect("index.php?r=watch/testChart");
 		}else{
+			$_SESSION['watcherID'] = 0;
+			$_SESSION['watcherName'] = 0;
 			$this->render('login');
 		}
 	}

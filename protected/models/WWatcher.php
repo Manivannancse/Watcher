@@ -64,6 +64,7 @@ class WWatcher{
 		$onePerson 		= $watcher->find($criteria);
 		if ($onePerson) {
 			$_SESSION['watcherID'] = $onePerson->_id;
+			$_SESSION['watcherName'] = $onePerson->name;
 			return  true;
 		}
 		return false;
@@ -93,7 +94,6 @@ class WWatcher{
 	}
 	
 	/**
-	 * 
 	 * get watcher's name
 	 */
 	public function getName(){
@@ -101,18 +101,69 @@ class WWatcher{
 	}
 	
 	/**
-	 * 
 	 * 获取某张表的最近数据
 	 * @param	table's name			$tableName
 	 * @param	xxxx-xx-xx xx:xx:xx		$startTime
 	 * @param	xxxx-xx-xx xx:xx:xx		$endTime
 	 */
 	public function getTableInfo($tableName,$startTime,$endTime){
-		$res = array();
+		$result = array();
 		if (self::valid()) {
 			$res = WCan::getTableInfo($tableName, $startTime, $endTime);
+			if ($res) {
+				foreach ($res as $can) {
+					$result[] = new WCan($can->_id, $can);
+				}
+			}
 		}
-		return $res;
+		return $result;
 	}
+	
+	/**
+	 * 获取某张表用于画图的数据
+	 * @param	table's name			$tableName
+	 * @param	xxxx-xx-xx xx:xx:xx		$startTime
+	 * @param	xxxx-xx-xx xx:xx:xx		$endTime
+	 */
+	public function getTabelChartData($tableName,$startTime,$endTime){
+		$result = array(
+			'index' 	=> array(),
+			'addition' 	=> array()
+		);
+		if (self::valid()) {
+			$wcanList = self::getTableInfo($tableName, $startTime, $endTime);
+			if ($wcanList) {
+				$preVal = 0;
+				foreach ($wcanList as $wcan) {
+					$result['index'][] 		= $wcan->getAdditionIndex();
+					$result['addition'][] 	= $wcan->getAddition();
+				}
+			}
+		}
+		return $result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 ?>

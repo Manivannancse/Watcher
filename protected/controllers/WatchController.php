@@ -24,12 +24,23 @@ class WatchController extends Controller{
 	 * 显示某张表的数据
 	 */
 	public function actionGetTableInfo(){
-		$tableName 	= isset($_REQUEST['tableName']) ? $_REQUEST['tableName'] : 'player';
-		$startTime 	= isset($_REQUEST['startTime']) ? $_REQUEST['startTime'] : '2012-10-25 00:00:00';
-		$endTime 	= isset($_REQUEST['endTime']) ? $_REQUEST['endTime'] : '2012-10-24 00:00:00';
+		$tableName 	= isset($_REQUEST['tableName']) ? $_REQUEST['tableName'] : 'player_epic_fight';
+		$startTime 	= isset($_REQUEST['startTime']) ? $_REQUEST['startTime'] : '2012-10-25 20:00:00';
+		$endTime 	= isset($_REQUEST['endTime']) ? $_REQUEST['endTime'] : '2012-10-26 00:00:00';
 		
-		$watcher = new WWatcher($_SESSION['watcherID'], NULL);
-		Util::dump($watcher->getTableInfo($tableName, $startTime, $endTime));
+		$watcher 	= new WWatcher($_SESSION['watcherID'], NULL);
+		$dataList 	= $watcher->getTabelChartData($tableName, $startTime, $endTime);
+		$pc 		= new C_PhpChartX(array($dataList['addition']),'basic_chart');
+		$pc->set_animate(true);
+		$pc->set_title(array('text' => $tableName));
+		$pc->add_plugins(array('cursor'));
+		$pc->set_cursor(array('show'=>true,'zoom'=>true));
+		//$pc->set_series_default(array('renderer'=>'plugin::BarRenderer'));
+		//$pc->add_plugins(array('highlighter', 'cursor'));
+		$this->render('testChart',array(
+			'pc' 		=> $pc,
+			'watcher' 	=> $watcher,
+		));
 	}
 	
 	public function actionTestChart(){

@@ -152,7 +152,22 @@ class WCan{
 		return $result;
 	}
 	
+	/**
+	 * 获取增量数值的index
+	 */
+	public function getAdditionIndex(){
+		if (self::valid()) {
+			return date('y-m-d h:i:s',$this->recordTime);
+		}	
+		return 0;	
+	}
 	
+	/**
+	 * 获取增量
+	 */
+	public function getAddition(){
+		return self::valid() ? $this->addition : 0;		
+	}
 	
 	
 	
