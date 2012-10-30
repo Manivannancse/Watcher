@@ -4,10 +4,15 @@
 			<span>select Table:</span>
 			<select name="tableName">
 				<?php 
+				if ($tableName) {
+					echo "<option value='{$tableName}'>{$tableName}</option>";
+				}
+				?>
+				<?php 
 				$watchList = Util::loadconfig('watchList');
 				if ($watchList) {
-					foreach ($watchList as $tableName => $conf) {
-						echo "<option value='{$tableName}'>{$tableName}</option>";
+					foreach ($watchList as $tname => $conf) {
+						echo "<option value='{$tname}'>{$tname}</option>";
 					}
 				}
 				?>
@@ -15,11 +20,11 @@
 		</div>
 		<div>
 			<span>start time:</span>
-			<input type="text" name="startTime">
+			<input type="text" name="startTime" value="<?=$startTime ? $startTime : ''?>">
 		</div>
 		<div>
 			<span>end time:</span>
-			<input type="text" name="endTime">
+			<input type="text" name="endTime" value="<?=$endTime ? $endTime : ''?>">
 		</div>
 		<div>
 			<input type="submit" value="watch table grow...">
@@ -27,5 +32,7 @@
 	</div>
 </form>
 <?php 
-	$pc->draw();
+	if ($dataVal) {
+		$pc->draw();
+	}
 ?>
