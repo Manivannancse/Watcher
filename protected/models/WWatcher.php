@@ -63,7 +63,7 @@ class WWatcher{
 		$criteria->auth = 1;
 		$onePerson 		= $watcher->find($criteria);
 		if ($onePerson) {
-			$_SESSION['watcherID'] = $onePerson->_id;
+			$_SESSION['watcherID'] = $onePerson->_id->__toString();
 			$_SESSION['watcherName'] = $onePerson->name;
 			return  true;
 		}
