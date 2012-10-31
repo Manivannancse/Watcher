@@ -24,7 +24,7 @@ class SiteController extends Controller{
 	 */
 	public function actionIndex(){
 		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID'])){
-			$this->render('index');
+			$this->redirect("index.php?r=watch/tableGrow");
 		}else{
 			$this->render('login');
 		}
@@ -72,15 +72,6 @@ class SiteController extends Controller{
 				'flag'     =>$flag,
 			));
 		}
-	}
-	
-	/**
-	 * 登出
-	 */
-	public function actionLogout(){
-		$_SESSION['watcherID'] = 0;
-		$_SESSION['watcherName'] = 0;
-		$this->render('login');
 	}
 
 }
