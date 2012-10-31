@@ -24,7 +24,7 @@ class SiteController extends Controller{
 	 */
 	public function actionIndex(){
 		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID'])){
-			$this->redirect("index.php?r=watch/tableGrow");
+			$this->redirect("chart.php?r=watch/tableGrow");
 		}else{
 			$this->render('login');
 		}
@@ -34,7 +34,7 @@ class SiteController extends Controller{
 		$watcherName	= isset($_SESSION['watcherName']) ? $_SESSION['watcherName'] : '';
 		$watcher	= new WWatcher($watcherID, null);
 		if ($watcher && $watcher->valid() && $watcher->getName() == $watcherName) {
-			$this->redirect("index.php?r=watch/testChart");
+			$this->redirect("chart.php?r=watch/testChart");
 		}else{
 			$_SESSION['watcherID'] = 0;
 			$_SESSION['watcherName'] = 0;

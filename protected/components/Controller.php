@@ -26,8 +26,6 @@ class Controller extends CController{
     protected function beforeAction($action){
 		$session = new CHttpSession;
 		$session->open();
-		$x_sid = session_id();
-		setcookie('PHPSESSID',$x_sid);
 		//$controllerID = $action->getController()->getId();
 		$actionID = $action->getController()->getAction()->getId();
 		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID']) || in_array($actionID, $this->allowActions)){
