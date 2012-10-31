@@ -31,7 +31,7 @@ class Controller extends CController{
 		}else{
 			$_SESSION['watcherID'] = 0;
 			$_SESSION['watcherName'] = 0;
-			$action->getController()->renderPartial('/site/login');
+			$action->getController()->render('/site/login');
 			//$action->getController()->redirect("index.php?r=site/login");
 			return;
 		}
