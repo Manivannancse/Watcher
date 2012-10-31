@@ -34,7 +34,7 @@ class SiteController extends Controller{
 		$watcherName	= isset($_SESSION['watcherName']) ? $_SESSION['watcherName'] : '';
 		$watcher	= new WWatcher($watcherID, null);
 		if ($watcher && $watcher->valid() && $watcher->getName() == $watcherName) {
-			$this->redirect("index.php?r=watch/testChart");
+			$this->redirect("chart.php?r=watch/testChart");
 		}else{
 			$_SESSION['watcherID'] = 0;
 			$_SESSION['watcherName'] = 0;

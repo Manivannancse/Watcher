@@ -1,4 +1,4 @@
-<form method="post" name="conditionForm" action="index.php?r=watch/tableGrow">
+<form method="post" name="conditionForm" action="chart.php?r=watch/tableGrow">
 	<div id="conditionDiv">
 		<div>
 			<span>select Table:</span>

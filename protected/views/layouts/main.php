@@ -10,10 +10,10 @@
 		<div id="watcherDiv" class="watcher">&nbsp;Watcher: &nbsp;<?=isset($_SESSION['watcherName']) ? $_SESSION['watcherName'] : 'invalid watcher'?></div>
 		<div id="tools" style="" class='sideBar'>
 			<div>
-				<span class="toolTitle">A<a href="index.php?r=watch/dangerTable" class="tollName"> Danger Table</a></span>
+				<span class="toolTitle">A<a href="chart.php?r=watch/dangerTable" class="tollName"> Danger Table</a></span>
 			</div>
 			<div>
-				<span class="toolTitle">B<a href="index.php?r=watch/tableGrow" class="tollName"> Table Grow</a></span>
+				<span class="toolTitle">B<a href="chart.php?r=watch/tableGrow" class="tollName"> Table Grow</a></span>
 			</div>
 		</div>
 		<div id="chart" style="position:absolute;top:40px;left:250px">
