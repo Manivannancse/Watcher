@@ -19,7 +19,6 @@
 		<div id="chart" style="position:absolute;top:40px;left:250px">
 			<?php echo $content;?>
 		</div>
-		
 		<div id="logoutDiv" style="position:absolute;top:40px;left:750px">
 			<a href="index.php?r=site/logout">Logout</a>
 		</div>
