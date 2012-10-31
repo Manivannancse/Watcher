@@ -73,6 +73,15 @@ class SiteController extends Controller{
 			));
 		}
 	}
+	
+	/**
+	 * 登出
+	 */
+	public function actionLogout(){
+		$_SESSION['watcherID'] = 0;
+		$_SESSION['watcherName'] = 0;
+		$this->render('login');
+	}
 
 }
 
