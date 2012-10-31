@@ -29,7 +29,6 @@ class Controller extends CController{
 		
 		//$controllerID = $action->getController()->getId();
 		$actionID = $action->getController()->getAction()->getId();
-		
 		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID']) || in_array($actionID, $this->allowActions)){
 			return true;
 		}else{
