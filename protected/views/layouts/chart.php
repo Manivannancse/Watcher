@@ -16,7 +16,7 @@
 				<span class="toolTitle">B<a href="index.php?r=watch/tableGrow" class="tollName"> Table Grow</a></span>
 			</div>
 		</div>
-		<div id="chart" style="position:absolute;top:80px;left:350px">
+		<div id="chart" style="position:absolute;top:40px;left:250px">
 			<?php echo $content;?>
 		</div>
 	</div>

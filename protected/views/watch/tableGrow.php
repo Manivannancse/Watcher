@@ -33,6 +33,6 @@
 </form>
 <?php 
 	if ($dataVal) {
-		$pc->draw();
+		$pc->draw(800,500);
 	}
 ?>

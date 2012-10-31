@@ -146,7 +146,7 @@ class WCan{
 			$criteria->tableName = $tableName;
 			$criteria->recordTime('>=',strtotime($startTime));
 			$criteria->recordTime('<=',strtotime($endTime));
-			$criteria->sort('recordTime', EMongoCriteria::SORT_DESC);
+			$criteria->sort('recordTime', EMongoCriteria::SORT_ASC);
 			$result = $can->findAll($criteria);
 		}
 		return $result;
@@ -157,7 +157,7 @@ class WCan{
 	 */
 	public function getAdditionIndex(){
 		if (self::valid()) {
-			return date('y-m-d h:i:s',$this->recordTime);
+			return date('Y-m-d h:i:s',$this->recordTime);
 		}	
 		return 0;	
 	}
