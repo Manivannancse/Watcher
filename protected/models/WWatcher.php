@@ -127,16 +127,17 @@ class WWatcher{
 	 */
 	public function getTabelChartData($tableName,$startTime,$endTime){
 		$result = array(
-			'index' 	=> array(),
-			'addition' 	=> array()
+		//	'index' 	=> array(),
+		//	'addition' 	=> array()
 		);
 		if (self::valid()) {
 			$wcanList = self::getTableInfo($tableName, $startTime, $endTime);
 			if ($wcanList) {
 				$preVal = 0;
 				foreach ($wcanList as $wcan) {
-					$result['index'][] 		= $wcan->getAdditionIndex();
-					$result['addition'][] 	= $wcan->getAddition();
+					$result[] = array($wcan->getAdditionIndex(),$wcan->getAddition());
+					//$result['index'][] 		= $wcan->getAdditionIndex();
+					//$result['addition'][] 	= $wcan->getAddition();
 				}
 			}
 		}
