@@ -22,7 +22,7 @@ class WWatcher{
 	public function __construct($_id,$dbRecord){
 		$this->_id = $_id;
 		if (!$dbRecord) {
-			$dbRecord = Watcher::model()->findByPk($_id);
+			$dbRecord = Watcher::model()->findByPk(new MongoId($_id));
 		}
 		self::__init($dbRecord);
 	}
