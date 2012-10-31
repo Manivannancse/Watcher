@@ -24,7 +24,7 @@ class SiteController extends Controller{
 	 */
 	public function actionIndex(){
 		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID'])){
-			$this->redirect("index.php?r=watch/tableGrow");
+			$this->render('index');
 		}else{
 			$this->render('login');
 		}
