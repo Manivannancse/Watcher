@@ -29,7 +29,10 @@ class Controller extends CController{
 		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID']) || $actionID == 'sign' || $actionID == 'check' || $actionID == 'insert'){
 			return true;
 		}else{
-			$action->getController()->render('/site/login');
+			$_SESSION['watcherID'] = 0;
+			$_SESSION['watcherName'] = 0;
+			//$action->getController()->render('/site/login');
+			$action->getController()->redirect("index.php?r=site/login");
 			return;
 		}
     }
