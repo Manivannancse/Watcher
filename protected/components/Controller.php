@@ -13,6 +13,9 @@ class Controller extends CController{
      * @var array context menu items. This property will be assigned to {@link CMenu::items}.
      */
     public $menu=array();
+    
+    public $allowActions = array('sign', 'check', 'insert', 'logout');
+    
     /**
      * @var array the breadcrumbs of the current page. The value of this property will
      * be assigned to {@link CBreadcrumbs::links}. Please refer to {@link CBreadcrumbs::links}
@@ -26,7 +29,8 @@ class Controller extends CController{
 		
 		//$controllerID = $action->getController()->getId();
 		$actionID = $action->getController()->getAction()->getId();
-		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID']) || $actionID == 'sign' || $actionID == 'check' || $actionID == 'insert'){
+		
+		if((isset($_SESSION['watcherID']) && $_SESSION['watcherID']) || in_array($actionID, $this->allowActions)){
 			return true;
 		}else{
 			$_SESSION['watcherID'] = 0;
