@@ -27,6 +27,22 @@
 			<input type="text" name="endTime" value="<?=$endTime ? $endTime : ''?>">
 		</div>
 		<div>
+			<span>Step:</span>
+			<select name="step">
+				<?php 
+				if ($step) {
+					echo "<option value='{$step}'>{$step}</option>";
+				}
+				?>
+				<option value="9">9 mintues</option>
+				<option value="15">15 mintues</option>
+				<option value="30">30 mintues</option>
+				<option value="45">45 mintues</option>
+				<option value="60">60 mintues</option>
+				<option value="180">180 mintues</option>
+			</select>
+		</div>
+		<div>
 			<input type="submit" value="watch table grow...">
 		</div>
 	</div>
