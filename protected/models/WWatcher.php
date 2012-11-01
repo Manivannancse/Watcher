@@ -102,9 +102,9 @@ class WWatcher{
 	
 	/**
 	 * 获取某张表的最近数据
-	 * @param	table's name			$tableName
-	 * @param	xxxx-xx-xx xx:xx:xx		$startTime
-	 * @param	xxxx-xx-xx xx:xx:xx		$endTime
+	 * @param	table's name	$tableName
+	 * @param	int time		$startTime
+	 * @param	int time		$endTime
 	 */
 	public function getTableInfo($tableName,$startTime,$endTime){
 		$result = array();
@@ -121,11 +121,44 @@ class WWatcher{
 	
 	/**
 	 * 获取某张表用于画图的数据
+	 * @param	table's name	$tableName
+	 * @param	int time		$startTime
+	 * @param	int time		$endTime
+	 * @param	time between two point	$step
+	 */
+	public function getTabelChartData($tableName,$startTime,$endTime,$step){
+		$result = array();
+		if (self::valid()) {
+			$wcanList = self::getTableInfo($tableName, $startTime, $endTime);
+			if ($wcanList) {
+				$tmpArr = array();
+				foreach ($wcanList as $wcan) {
+					$tmpArr[$wcan->getStepIndex($startTime,$step)][] = $wcan;
+				}
+				
+				if ($tmpArr) {
+					foreach ($tmpArr as $key => $wlist) {
+						$xindex = $wlist[0]->getAdditionIndex($startTime,$step);;
+						$total	= 0;
+						foreach ($wlist as $wcan) {
+							$total	+= $wcan->getAddition();
+						}
+						$result[] = array($xindex,$total / count($wlist));
+					}
+				}
+			}
+		}
+		return $result;
+	}
+	
+	
+	/**
+	 * 获取某张表用于画图的总的历史数据：按天同比
 	 * @param	table's name			$tableName
 	 * @param	xxxx-xx-xx xx:xx:xx		$startTime
 	 * @param	xxxx-xx-xx xx:xx:xx		$endTime
 	 */
-	public function getTabelChartData($tableName,$startTime,$endTime){
+	public function getTabelChartDataHistoryTotal($tableName,$startTime,$endTime){
 		$result = array(
 		//	'index' 	=> array(),
 		//	'addition' 	=> array()
@@ -136,13 +169,12 @@ class WWatcher{
 				$preVal = 0;
 				foreach ($wcanList as $wcan) {
 					$result[] = array($wcan->getAdditionIndex(),$wcan->getAddition());
-					//$result['index'][] 		= $wcan->getAdditionIndex();
-					//$result['addition'][] 	= $wcan->getAddition();
 				}
 			}
 		}
 		return $result;
 	}
+	
 	
 	
 	

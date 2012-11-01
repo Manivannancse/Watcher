@@ -133,9 +133,9 @@ class WCan{
 	/**
 	 * 
 	 * 获取某张表的最近数据
-	 * @param	table's name			$tableName
-	 * @param	xxxx-xx-xx xx:xx:xx		$startTime
-	 * @param	xxxx-xx-xx xx:xx:xx		$endTime
+	 * @param	table's name	$tableName
+	 * @param	int time		$startTime
+	 * @param	int time 		$endTime
 	 */
 	public static function getTableInfo($tableName,$startTime,$endTime){
 		$result = array();
@@ -144,8 +144,8 @@ class WCan{
 			$can 		= new Can();
 			$criteria 	= new EMongoCriteria();
 			$criteria->tableName = $tableName;
-			$criteria->recordTime('>=',strtotime($startTime));
-			$criteria->recordTime('<=',strtotime($endTime));
+			$criteria->recordTime('>=',$startTime);
+			$criteria->recordTime('<=',$endTime);
 			$criteria->sort('recordTime', EMongoCriteria::SORT_ASC);
 			$result = $can->findAll($criteria);
 		}
@@ -155,11 +155,27 @@ class WCan{
 	/**
 	 * 获取增量数值的index
 	 */
-	public function getAdditionIndex(){
+	public function getAdditionIndex($startTime,$step){
 		if (self::valid()) {
-			return date('Y-m-d h:i:s',$this->recordTime);
+			$timeSection = $this->recordTime - $startTime;
+			$modVal = $timeSection % ($step * 60);
+			$count	= ($timeSection - $modVal) / ($step * 60);
+			return date('H:i',$startTime + $count * 60 * $step);
 		}	
 		return 0;	
+	}
+	
+	/**
+	 * 获取时间段的index
+	 */
+	public function getStepIndex($startTime,$step){
+		if (self::valid()) {
+			$timeSection = $this->recordTime - $startTime;
+			$modVal = $timeSection % ($step * 60);
+			$count	= ($timeSection - $modVal) / ($step * 60);
+			return $count + 1;
+		}
+		return 0;
 	}
 	
 	/**
