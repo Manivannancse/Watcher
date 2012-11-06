@@ -60,7 +60,7 @@ return array(
 			'charset' => 'utf8',
 		),*/
 		'db'=>array(
-			'connectionString' => 'mysql:host=192.168.7.49;dbname=ninja;port=8188',
+			'connectionString' => 'mysql:host=192.168.2.115;dbname=ninja;port=8188',
 			'emulatePrepare' => true,
 			'username' => 'mars_read',
 			'password' => 'FtFt05ab',
@@ -89,8 +89,8 @@ return array(
 		
 		'mongodb' => array(
 	        'class'             => 'EMongoDB',
-			'connectionString'  => 'mongodb://127.0.0.1',
-			//'connectionString'  => 'mongodb://192.168.1.73',
+			//'connectionString'  => 'mongodb://127.0.0.1',
+			'connectionString'  => 'mongodb://192.168.1.73',
 	        'dbName'            => 'watcher',
 	        'fsyncFlag'         => false,
 	        'safeFlag'          => false,

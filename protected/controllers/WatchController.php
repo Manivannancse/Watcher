@@ -138,6 +138,7 @@ class WatchController extends Controller{
 	public function actiondangerTable(){
 		$watcher 	= new WWatcher($_SESSION['watcherID'], NULL);
 		if ($watcher && $watcher->valid()) {
+			
 			//获取total大于100w的表
 			$millionTable = $watcher -> getMillionTable();
 			$this->render('dangerTable',array(
