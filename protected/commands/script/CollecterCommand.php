@@ -126,7 +126,7 @@ class CollecterCommand extends CConsoleCommand{
 			}else{
 				$newRecord->tableName 	= $can->tableName;
 				$newRecord->total 		= $can->total;
-				$newRecord->sectionTime = $can->sectionTime;
+				$newRecord->sectionTime = $can->sectionTime ? $can->sectionTime : 0;
 				$newRecord->recordTime 	= time();
 				$newRecord->insert();
 				echo "new millionRecord inserted into mongodb\n";
