@@ -51,7 +51,7 @@ class WatchController extends Controller{
 		$tableName 	= isset($_REQUEST['tableName']) ? $_REQUEST['tableName'] : 'player_epic_fight';
 		$startTime 	= isset($_REQUEST['startTime']) ? $_REQUEST['startTime'] : date('Y-m-d 00:00:00',time());
 		$endTime 	= isset($_REQUEST['endTime']) ? $_REQUEST['endTime'] : date('Y-m-d 23:59:59',time());
-		$step		= isset($_REQUEST['step']) ? $_REQUEST['step'] : 15;
+		$step		= isset($_REQUEST['step']) ? $_REQUEST['step'] : 60;
 		
 		$watcher 	= new WWatcher($_SESSION['watcherID'], NULL);
 		$dataList 	= $watcher->getTabelChartData($tableName, strtotime($startTime), strtotime($endTime),$step);
@@ -122,9 +122,9 @@ class WatchController extends Controller{
 		$step		= isset($_REQUEST['step']) ? $_REQUEST['step'] : 60;
 		
 		$watcher 	= new WWatcher($_SESSION['watcherID'], NULL);
-		$dataList 	= $watcher->getTabelChartData($tableName, strtotime($startTime), strtotime($endTime),$step);
-		$yestList	= $watcher->getTabelChartData($tableName, 2 * strtotime($startTime) - strtotime($endTime), strtotime($startTime),$step);
-		$zestList	= $watcher->getTabelChartData($tableName, strtotime($startTime) - 86400*2, strtotime($endTime) - 86400*2,$step);
+		$dataList 	= $watcher->getTabelChartDataSection($tableName, strtotime($startTime), strtotime($endTime),$step);
+		$yestList	= $watcher->getTabelChartDataSection($tableName, 2 * strtotime($startTime) - strtotime($endTime), strtotime($startTime),$step);
+		$zestList	= $watcher->getTabelChartDataSection($tableName, strtotime($startTime) - 86400*2, strtotime($endTime) - 86400*2,$step);
 		//Util::dump($dataList);Util::dump($yestList);exit;
 		$pc 		= new C_PhpChartX(array($dataList,$yestList,$zestList),'chart1');
 		if($dataList){
@@ -154,9 +154,9 @@ class WatchController extends Controller{
 				'yoffset' 			=> 30,
 				'rendererOptions' 	=> array('numberRows'=>3),
 				'labels'			=> array(
-					date('Y-m-d',strtotime($startTime)), 
-					date('Y-m-d',strtotime($startTime) - 86400), 
-					date('Y-m-d',strtotime($startTime) - 86400 * 2)
+					'1X', 
+					'2X', 
+					'3X'
 				)   
 			));
 			$pc->set_title(array('text' => $tableName));
@@ -168,7 +168,7 @@ class WatchController extends Controller{
 		    $pc->add_series(array('showLabel'=>true));
 			
 		}
-		$this->render('tableGrow',array(
+		$this->render('tableGrowSection',array(
 			'dataVal'	=> $dataList,
 			'pc' 		=> $pc,
 			'watcher' 	=> $watcher,

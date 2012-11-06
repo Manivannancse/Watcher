@@ -134,6 +134,7 @@ class WWatcher{
 		}
 		return null;
 	}
+	
 	/**
 	 * 获取某张表用于画图的数据
 	 * @param	table's name	$tableName
@@ -154,6 +155,38 @@ class WWatcher{
 				if ($tmpArr) {
 					foreach ($tmpArr as $key => $wlist) {
 						$xindex = $wlist[0]->getAdditionIndex($startTime,$step);;
+						$total	= 0;
+						foreach ($wlist as $wcan) {
+							$total	+= $wcan->getAddition();
+						}
+						$result[] = array($xindex,$total / count($wlist));
+					}
+				}
+			}
+		}
+		return $result;
+	}
+	
+	/**
+	 * 获取某张表用于画图的数据:按时间段环比
+	 * @param	table's name	$tableName
+	 * @param	int time		$startTime
+	 * @param	int time		$endTime
+	 * @param	time between two point	$step
+	 */
+	public function getTabelChartDataSection($tableName,$startTime,$endTime,$step){
+		$result = array();
+		if (self::valid()) {
+			$wcanList = self::getTableInfo($tableName, $startTime, $endTime);
+			if ($wcanList) {
+				$tmpArr = array();
+				foreach ($wcanList as $wcan) {
+					$tmpArr[$wcan->getStepIndex($startTime,$step)][] = $wcan;
+				}
+				
+				if ($tmpArr) {
+					foreach ($tmpArr as $key => $wlist) {
+						$xindex = $wlist[0]->getAdditionIndexSection($startTime,$step);;
 						$total	= 0;
 						foreach ($wlist as $wcan) {
 							$total	+= $wcan->getAddition();

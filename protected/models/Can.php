@@ -68,5 +68,23 @@ class Can extends EMongoDocument{
 	public static function model($className = __CLASS__){
 		return parent::model($className);
 	}
+	
+	public function indexes(){
+        return array(
+            // index name is not important, you may write whatever you want, just must be unique
+            'tableNameIndex' => array(
+                // key array holds list of fields for index
+                // you may define multiple keys for index and multikey indexes
+                // each key must have a sorting direction SORT_ASC or SORT_DESC
+                'key' => array(
+                    'tableName' => EMongoCriteria::SORT_ASC,
+                    //'field_name.embeded_field' => MongoCriteria::SORT_DESC
+                ),
+ 
+                // unique, if indexed field must be unique, define a unique key
+                'unique' => false,
+            ),
+        );
+    }
 
 }

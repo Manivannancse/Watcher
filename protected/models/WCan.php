@@ -166,6 +166,38 @@ class WCan{
 	}
 	
 	/**
+	 * 获取增量数值的index:时间段环比方式
+	 */
+	public function getAdditionIndexSection($startTime,$step){
+		if (self::valid()) {
+			$timeSection 	= $this->recordTime - $startTime;
+			$modVal 		= $timeSection % ($step * 60);
+			$count			= ($timeSection - $modVal) / ($step * 60);
+			$dayIndex		= self::getDayIndex($startTime);
+			return $dayIndex . date('H:i',$startTime + $count * 60 * $step);
+		}	
+		return 0;	
+	}
+	
+	/**
+	 * 
+	 * 获取时间段环比方式的x轴标记的头部
+	 * @param 开始时间 $startTime
+	 */
+	public function getDayIndex($startTime){
+		if (self::valid()) {
+			$startZero 		= strtotime(date('Y-m-d 00:00:00', $startTime));
+			$timeSection 	= abs($startTime - $this->recordTime);
+			$modVal			= $timeSection % 86400;
+			$pVal 			= $timeSection - $modVal;
+			$count 			= floor($pVal ? ($pVal / 86400 + 1) : 1);
+			//echo "{$timeSection} vs {$count} - {$modVal}<br>";
+			return "{$count}X";
+		}
+		return '1X';
+	}
+	
+	/**
 	 * 获取时间段的index
 	 */
 	public function getStepIndex($startTime,$step){
