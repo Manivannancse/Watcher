@@ -121,10 +121,14 @@ class WatchController extends Controller{
 		$endTime 	= isset($_REQUEST['endTime']) ? $_REQUEST['endTime'] : date('Y-m-d 23:59:59',time());
 		$step		= isset($_REQUEST['step']) ? $_REQUEST['step'] : 60;
 		
-		$watcher 	= new WWatcher($_SESSION['watcherID'], NULL);
-		$dataList 	= $watcher->getTabelChartDataSection($tableName, strtotime($startTime), strtotime($endTime),$step);
-		$yestList	= $watcher->getTabelChartDataSection($tableName, 2 * strtotime($startTime) - strtotime($endTime), strtotime($startTime),$step);
-		$zestList	= $watcher->getTabelChartDataSection($tableName, strtotime($startTime) - 86400*2, strtotime($endTime) - 86400*2,$step);
+		$watcher 		= new WWatcher($_SESSION['watcherID'], NULL);
+		$dataList 		= $watcher->getTabelChartDataSection($tableName, strtotime($startTime), strtotime($endTime),$step);
+		$startTime2x 	= 2 * strtotime($startTime) - strtotime($endTime);
+		$endTime2x 		= strtotime($startTime);
+		$yestList		= $watcher->getTabelChartDataSection($tableName, $startTime2x, $endTime2x,$step);
+		$startTime3x 	= $startTime2x * 2 - $endTime2x;
+		$endTime3x 		= $startTime2x;
+		$zestList		= $watcher->getTabelChartDataSection($tableName, $startTime3x, $endTime3x,$step);
 		//Util::dump($dataList);Util::dump($yestList);exit;
 		$pc 		= new C_PhpChartX(array($dataList,$yestList,$zestList),'chart1');
 		if($dataList){
@@ -154,9 +158,9 @@ class WatchController extends Controller{
 				'yoffset' 			=> 30,
 				'rendererOptions' 	=> array('numberRows'=>3),
 				'labels'			=> array(
-					'1X', 
-					'2X', 
-					'3X'
+					'1X : '.$startTime, 
+					'2X : '.date('Y-m-d H:i:s', $startTime2x), 
+					'3X : '.date('Y-m-d H:i:s', $startTime3x), 
 				)   
 			));
 			$pc->set_title(array('text' => $tableName));
