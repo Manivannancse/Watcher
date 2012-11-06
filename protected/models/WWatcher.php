@@ -126,7 +126,7 @@ class WWatcher{
 		if(self::valid()){
 			$newRecord 		= new NewRecord();
 			$criteria 	    = new EMongoCriteria();
-			$criteria->sort('recordTime', EMongoCriteria::SORT_DESC);
+			$criteria->sort('total', EMongoCriteria::SORT_DESC);
 			$dList = $newRecord->findAll($criteria);			
 			if ($dList) {
 				return $dList;
