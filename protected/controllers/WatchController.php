@@ -45,17 +45,85 @@ class WatchController extends Controller{
 	
 	/**
 	 * 
-	 * 显示某张表的增长数据
+	 * 显示某张表的增长数据:按天环比
 	 */
 	public function actionTableGrow(){
 		$tableName 	= isset($_REQUEST['tableName']) ? $_REQUEST['tableName'] : 'player_epic_fight';
-		$startTime 	= isset($_REQUEST['startTime']) ? $_REQUEST['startTime'] : date('y-m-d H:i:s',time() - 3600);
-		$endTime 	= isset($_REQUEST['endTime']) ? $_REQUEST['endTime'] : date('y-m-d H:i:s',time());
+		$startTime 	= isset($_REQUEST['startTime']) ? $_REQUEST['startTime'] : date('Y-m-d 00:00:00',time());
+		$endTime 	= isset($_REQUEST['endTime']) ? $_REQUEST['endTime'] : date('Y-m-d 23:59:59',time());
 		$step		= isset($_REQUEST['step']) ? $_REQUEST['step'] : 15;
 		
 		$watcher 	= new WWatcher($_SESSION['watcherID'], NULL);
 		$dataList 	= $watcher->getTabelChartData($tableName, strtotime($startTime), strtotime($endTime),$step);
 		$yestList	= $watcher->getTabelChartData($tableName, strtotime($startTime) - 86400, strtotime($endTime) - 86400,$step);
+		$zestList	= $watcher->getTabelChartData($tableName, strtotime($startTime) - 86400*2, strtotime($endTime) - 86400*2,$step);
+		//Util::dump($dataList);Util::dump($yestList);exit;
+		$pc 		= new C_PhpChartX(array($dataList,$yestList,$zestList),'chart1');
+		if($dataList){
+			$pc->add_plugins(array('canvasTextRenderer','canvasAxisTickRenderer'),true);
+			$pc->set_axes(array(
+				'xaxis'=>array(
+		                'renderer' 			=> 'plugin::CategoryAxisRenderer', 
+		                'min'				=> $dataList[0][0], 
+		                'tickInterval'		=> 30,
+		                'rendererOptions'	=> array('tickRenderer'=>'plugin::CanvasAxisTickRenderer'),
+		                'tickOptions'		=> array(
+							'fontSize'			=> '6pt', 
+							'fontFamily'		=> 'consolas', 
+							'angle'				=> -30, 
+							'color'				=> 'green',
+							'fontWeight'		=> 'normal', 
+							'fontStretch'		=> 1
+						)
+				)
+		    ));
+			$pc->set_animate(true);
+			$pc->set_legend(array(
+				'renderer' 			=> 'plugin::EnhancedLegendRenderer',
+				'show' 				=> true,
+				'location' 			=> 'e',
+				'placement'			=> 'outside',
+				'yoffset' 			=> 30,
+				'rendererOptions' 	=> array('numberRows'=>3),
+				'labels'			=> array(
+					date('Y-m-d',strtotime($startTime)), 
+					date('Y-m-d',strtotime($startTime) - 86400), 
+					date('Y-m-d',strtotime($startTime) - 86400 * 2)
+				)   
+			));
+			$pc->set_title(array('text' => $tableName));
+			$pc->add_plugins(array('cursor'));
+			$pc->set_cursor(array('show'=>true,'zoom'=>true));
+			
+			$pc->jqplot_show_plugins(true);
+		    $pc->add_series(array('showLabel'=>true));
+		    $pc->add_series(array('showLabel'=>true));
+			
+		}
+		$this->render('tableGrow',array(
+			'dataVal'	=> $dataList,
+			'pc' 		=> $pc,
+			'watcher' 	=> $watcher,
+			'tableName'	=> $tableName,
+			'startTime'	=> $startTime,
+			'endTime'	=> $endTime,
+			'step'		=> $step,
+		));
+	}
+	
+	/**
+	 * 
+	 * 显示某张表的增长数据:按时间段环比
+	 */
+	public function actionTableGrowSection(){
+		$tableName 	= isset($_REQUEST['tableName']) ? $_REQUEST['tableName'] : 'player_epic_fight';
+		$startTime 	= isset($_REQUEST['startTime']) ? $_REQUEST['startTime'] : date('Y-m-d 00:00:00',time() - 3600);
+		$endTime 	= isset($_REQUEST['endTime']) ? $_REQUEST['endTime'] : date('Y-m-d 23:59:59',time());
+		$step		= isset($_REQUEST['step']) ? $_REQUEST['step'] : 60;
+		
+		$watcher 	= new WWatcher($_SESSION['watcherID'], NULL);
+		$dataList 	= $watcher->getTabelChartData($tableName, strtotime($startTime), strtotime($endTime),$step);
+		$yestList	= $watcher->getTabelChartData($tableName, 2 * strtotime($startTime) - strtotime($endTime), strtotime($startTime),$step);
 		$zestList	= $watcher->getTabelChartData($tableName, strtotime($startTime) - 86400*2, strtotime($endTime) - 86400*2,$step);
 		//Util::dump($dataList);Util::dump($yestList);exit;
 		$pc 		= new C_PhpChartX(array($dataList,$yestList,$zestList),'chart1');

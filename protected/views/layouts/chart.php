@@ -13,7 +13,10 @@
 				<span class="toolTitle">A<a href="chart.php?r=watch/dangerTable" class="tollName"> Danger Table</a></span>
 			</div>
 			<div>
-				<span class="toolTitle">B<a href="chart.php?r=watch/tableGrow" class="tollName"> Table Grow</a></span>
+				<span class="toolTitle">B<a href="chart.php?r=watch/tableGrow" class="tollName"> Table Grow By Day</a></span>
+			</div>
+			<div>
+				<span class="toolTitle">B<a href="chart.php?r=watch/tableGrowSection" class="tollName"> Table Grow By Section</a></span>
 			</div>
 		</div>
 		<div id="chart" style="position:absolute;top:40px;left:250px">
