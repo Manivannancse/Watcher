@@ -63,6 +63,8 @@ return array(
 	'lottery_equip' => array('tableName' => 'lottery_equip', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
 	'magic' => array('tableName' => 'magic', 'byID' => 0, 'byTime' => 0, 'colName' => 'count(*)'),
 	'magic_hs' => array('tableName' => 'magic_hs', 'byID' => 0, 'byTime' => 0, 'colName' => 'count(*)'),
+	'maze' => array('tableName' => 'maze', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
+	'mazeDone' => array('tableName' => 'mazeDone', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
 	'memberNews' => array('tableName' => 'memberNews', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
 	'memberTalent' => array('tableName' => 'memberTalent', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
 	'month_active_st' => array('tableName' => 'month_active_st', 'byID' => 1, 'byTime' => 0, 'colName' => 'id'),
