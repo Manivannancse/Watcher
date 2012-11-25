@@ -1,4 +1,6 @@
-<h3>Record of more than 1000000</h3>
+<html>
+<body>
+<h3>Record of more than 100W</h3>
 <table border="1" bgcolor="pink" width="1050" align="center">
 <tr>
 <?php 
@@ -8,14 +10,14 @@ if($millionTable){
 		<tr>
 		<th>tableName</th>
 		<th>totalRecord</th>
-		<th>maxID</th>
-		<th>lastUpdateTime</th>
+		<th>TlastUpdateTime</th>
+		<th>recordTime</th>
 		</tr>
 		<tr>
 		<td><?=$tableArr['tableName'] ?></td>
 		<td><?=$tableArr['total'] ?></td>
-		<td><?=$tableArr['maxID'] ?></td>
 		<td><?=$tableArr['sectionTime'] ?></td>
+		<td><?=$tableArr['recordTime'] ?></td>
 		</tr>
 		<?php
 	}
@@ -23,6 +25,10 @@ if($millionTable){
 	echo "No Record!";
 }
 ?>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>
 
 
 

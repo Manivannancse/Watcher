@@ -28,7 +28,6 @@ class CollecterCommand extends CConsoleCommand{
 	private function insert(){
 		$tableAttr = Util::loadconfig('watchList');
 		$dba = Yii::app()->db;
-		$consts = 1000000;
 		foreach($tableAttr as $tableName => $r){
 			try{
 				if($r['byID'] == 1 && $r['byTime'] == 0){
@@ -40,17 +39,7 @@ class CollecterCommand extends CConsoleCommand{
 					$res = $cmd->queryRow(true,array());
 					$newMaxID = (int)$res['maxID'];
 					$newTotal = (int)$res['total'];
-					if($newTotal >= $consts){
-						$newRecord = new NewRecord();
-						$newRecord->tableName 	= $tableName;
-						$newRecord->maxID			= $newMaxID;
-						$newRecord->sectionTime 	= 0;
-						$newRecord->addition 		= $addition;
-						$newRecord->total 		= $newTotal;
-						$newRecord->recordTime 	= time();
-						$newRecord->upset();
-						echo "new millionRecord inserted into mongodb\n";
-					}
+					
 					$cmd = $dba->createCommand("
 						select count(*) as addition
 						from $tableName
@@ -66,6 +55,7 @@ class CollecterCommand extends CConsoleCommand{
 					$can->total 		= $newTotal;
 					$can->recordTime 	= time();
 					$can->insert();
+					$this->checkNewRecord($can);
 				}else if($r['byID'] == 0 && $r['byTime'] == 1){
 					$lastTime = WCan::getLastMaxTimeByTableName($tableName);
 					$cmd = $dba->createCommand("
@@ -75,17 +65,7 @@ class CollecterCommand extends CConsoleCommand{
 					$res = $cmd->queryRow(true,array());
 					$newLastTime = (int)$res['lastTime'];
 					$newTotal = (int)$res['total'];
-					if($newTotal >= $consts){
-						$newRecord = new NewRecord();
-						$newRecord->tableName 	= $tableName;
-						$newRecord->maxID			= $newMaxID;
-						$newRecord->sectionTime 	= 0;
-						$newRecord->addition 		= $addition;
-						$newRecord->total 		= $newTotal;
-						$newRecord->recordTime 	= time();
-						$newRecord->upset();
-						echo "new millionRecord inserted into mongodb\n";
-					}
+					
 					$cmd = $dba->createCommand("
 						select count(*) as addition
 						from $tableName
@@ -101,6 +81,7 @@ class CollecterCommand extends CConsoleCommand{
 					$can->total 		= $newTotal;
 					$can->recordTime 	= time();
 					$can->insert();
+					$this->checkNewRecord($can);
 				}else{
 					$lastCount = WCan::getLastCountByTableName($tableName);
 					$cmd = $dba->createCommand("
@@ -109,17 +90,6 @@ class CollecterCommand extends CConsoleCommand{
 					");
 					$res = $cmd->queryRow(true,array());
 					$newTotal = $res['total'];
-					if($newTotal >= $consts){
-						$newRecord = new NewRecord();
-						$newRecord->tableName 	= $tableName;
-						$newRecord->maxID			= $newMaxID;
-						$newRecord->sectionTime 	= 0;
-						$newRecord->addition 		= $addition;
-						$newRecord->total 		= $newTotal;
-						$newRecord->recordTime 	= time();
-						$newRecord->upset();
-						echo "new millionRecord inserted into mongodb\n";
-					}
 					$addition = $newTotal - $lastCount;
 					$can = new Can();
 					$can->tableName 	= $tableName;
@@ -129,13 +99,39 @@ class CollecterCommand extends CConsoleCommand{
 					$can->total 		= (int)$newTotal;
 					$can->recordTime 	= time();
 					$can->insert();
+					$this->checkNewRecord($can);
 				}
 			}catch (Exception $e) {
 				continue;
 			}
 		}
-		echo "new document inserted into mongodb\n";
-		
+		echo "new document inserted into can mongoDB\n";
+		echo "new millionRecord update into newRecord mongodb\n";	
+	}
+	
+	/**
+	 * 检查最新记录是否要更新到newRecord表中：有就更新、没有就插入
+	 */
+	public function checkNewRecord($can){
+		$consts = 1000000;
+		if($can->total >= $consts){
+			$newRecord = new NewRecord();
+			$criteria 	= new EMongoCriteria();
+			$criteria->tableName = $can->tableName;
+			$list = $newRecord->find($criteria);	
+			if($list){
+				$list->total = $can->total;
+				$list->validate(array('total'));
+				$list->update(array('total'), true);
+			}else{
+				$newRecord->tableName 	= $can->tableName;
+				$newRecord->total 		= $can->total;
+				$newRecord->sectionTime = $can->sectionTime;
+				$newRecord->recordTime 	= time();
+				$newRecord->insert();
+				echo "new millionRecord inserted into mongodb\n";
+			}
+		}
 	}
 	
 	/**
