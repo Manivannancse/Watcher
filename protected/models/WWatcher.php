@@ -120,6 +120,22 @@ class WWatcher{
 	}
 	
 	/**
+	 * 获取total大于100w的所有表
+	 */
+	public function getMillionTable(){
+		$result = array();
+		$watchList = Util::loadconfig('watchList');
+		if(self::valid()){
+			foreach($watchList as $tableName => $tableArr){
+				$wcanList = WCan::getLatestRecordByTableName($tableName);
+				if ($wcanList && $wcanList['total']>1000000) {
+					$result['tableName'] = $wcanList;
+				}
+			}
+		}
+		return $result; 	
+	}
+	/**
 	 * 获取某张表用于画图的数据
 	 * @param	table's name	$tableName
 	 * @param	int time		$startTime
