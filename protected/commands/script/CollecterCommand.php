@@ -28,7 +28,7 @@ class CollecterCommand extends CConsoleCommand{
 	private function insert(){
 		$tableAttr = Util::loadconfig('watchList');
 		$dba = Yii::app()->db;
-		$consts = 1000000;
+		$consts = 100;
 		foreach($tableAttr as $tableName => $r){
 			try{
 				if($r['byID'] == 1 && $r['byTime'] == 0){

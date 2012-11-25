@@ -3,7 +3,7 @@
 <tr>
 <?php 
 if($millionTable){
-	foreach($millionTable as $tableArr){
+	foreach($millionTable as $id => $tableArr){
 	?>
 		<tr>
 		<th>tableName</th>
