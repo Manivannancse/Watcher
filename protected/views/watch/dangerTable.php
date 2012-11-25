@@ -19,6 +19,8 @@ if($millionTable){
 		</tr>
 		<?php
 	}
+}else{
+	echo "No Record!";
 }
 ?>
 

@@ -28,6 +28,7 @@ class CollecterCommand extends CConsoleCommand{
 	private function insert(){
 		$tableAttr = Util::loadconfig('watchList');
 		$dba = Yii::app()->db;
+		$consts = 1000000;
 		foreach($tableAttr as $tableName => $r){
 			try{
 				if($r['byID'] == 1 && $r['byTime'] == 0){
@@ -39,7 +40,17 @@ class CollecterCommand extends CConsoleCommand{
 					$res = $cmd->queryRow(true,array());
 					$newMaxID = (int)$res['maxID'];
 					$newTotal = (int)$res['total'];
-					
+					if($newTotal >= $consts){
+						$newRecord = new NewRecord();
+						$newRecord->tableName 	= $tableName;
+						$newRecord->maxID			= $newMaxID;
+						$newRecord->sectionTime 	= 0;
+						$newRecord->addition 		= $addition;
+						$newRecord->total 		= $newTotal;
+						$newRecord->recordTime 	= time();
+						$newRecord->upset();
+						echo "new millionRecord inserted into mongodb\n";
+					}
 					$cmd = $dba->createCommand("
 						select count(*) as addition
 						from $tableName
@@ -64,7 +75,17 @@ class CollecterCommand extends CConsoleCommand{
 					$res = $cmd->queryRow(true,array());
 					$newLastTime = (int)$res['lastTime'];
 					$newTotal = (int)$res['total'];
-					
+					if($newTotal >= $consts){
+						$newRecord = new NewRecord();
+						$newRecord->tableName 	= $tableName;
+						$newRecord->maxID			= $newMaxID;
+						$newRecord->sectionTime 	= 0;
+						$newRecord->addition 		= $addition;
+						$newRecord->total 		= $newTotal;
+						$newRecord->recordTime 	= time();
+						$newRecord->upset();
+						echo "new millionRecord inserted into mongodb\n";
+					}
 					$cmd = $dba->createCommand("
 						select count(*) as addition
 						from $tableName
@@ -88,6 +109,17 @@ class CollecterCommand extends CConsoleCommand{
 					");
 					$res = $cmd->queryRow(true,array());
 					$newTotal = $res['total'];
+					if($newTotal >= $consts){
+						$newRecord = new NewRecord();
+						$newRecord->tableName 	= $tableName;
+						$newRecord->maxID			= $newMaxID;
+						$newRecord->sectionTime 	= 0;
+						$newRecord->addition 		= $addition;
+						$newRecord->total 		= $newTotal;
+						$newRecord->recordTime 	= time();
+						$newRecord->upset();
+						echo "new millionRecord inserted into mongodb\n";
+					}
 					$addition = $newTotal - $lastCount;
 					$can = new Can();
 					$can->tableName 	= $tableName;
